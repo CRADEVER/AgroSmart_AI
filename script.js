@@ -39,7 +39,6 @@ function showPlant(index) {
     <p><b>Lợi ích dinh dưỡng:</b> ${plant.nutrition}</p>
   `;
 
-  // Chart
   const ctx = document.getElementById("plant-chart").getContext("2d");
   if (plantChart) plantChart.destroy();
   plantChart = new Chart(ctx, {
