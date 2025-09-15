@@ -18,6 +18,7 @@
       <a href="#home">Trang chủ</a>
       <a href="#plants">Thư viện</a>
       <a href="#intro">Giới thiệu</a>
+      <a href="#chatbot">AI Chatbot</a>
     </nav>
     <button id="dark-toggle">🌙</button>
   </header>
@@ -41,10 +42,12 @@
     <h2>🌱 Thư viện cây trồng</h2>
     <input type="text" id="searchInput" placeholder="🔍 Tìm kiếm cây trồng..." />
     <div class="plant-grid" id="plantGrid"></div>
+
     <div class="plant-info hidden" id="plantInfo">
       <h2 id="plantName"></h2>
       <img id="plantImg" alt="Plant" />
       <p id="plantDesc"></p>
+      <ul id="plantExtra"></ul>
       <canvas id="plantChart"></canvas>
       <p id="plantSource" class="source"></p>
     </div>
@@ -60,7 +63,6 @@
     </p>
   </section>
 
-  <!-- Footer -->
   <footer>
     <p>© 2025 CR - AgroSmart AI | Nền tảng AI hỗ trợ nông nghiệp</p>
   </footer>
