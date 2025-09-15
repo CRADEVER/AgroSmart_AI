@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>🌱 Hệ thống cây trồng thông minh</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Header -->
+   <button id="dark-toggle">🌙 Dark Mode</button>
+  <header>
+    <div class="logo">🌱 AgroSmart</div>
+    <nav>
+      <a href="#">Trang chủ</a>
+      <a href="#">Thư viện</a>
+      <a href="#">AI Nhận diện</a>
+      <a href="#">Liên hệ</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Hệ thống cây trồng <span class="highlight">thông minh</span></h1>
+    <p>Khám phá dữ liệu nông nghiệp & ứng dụng AI cho cây trồng</p>
+  </section>
+
+  <!-- Plant List -->
+  <section class="plants">
+    <h2>🌾 Thư viện cây trồng</h2>
+    <div id="plant-list" class="plant-grid"></div>
+  </section>
+
+  <!-- Plant Info -->
+  <section id="plant-info" class="plant-info hidden">
+    <h2 id="plant-name"></h2>
+    <canvas id="plant-chart" width="400" height="200"></canvas>
+    <div id="plant-details"></div>
+  </section>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
