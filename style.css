@@ -115,43 +115,25 @@ body.dark header {
   font-weight: bold;
 }
 
+/* Plant info */
+.plant-info {
+  padding: 40px 20px;
+  background: #fff;
+  border-radius: 16px;
+  margin: 30px auto;
+  max-width: 800px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.hidden {
+  display: none;
+}
+
 /* About */
 .about {
   padding: 50px 20px;
   background: #f1f8f6;
   text-align: center;
   border-top: 2px solid #ccc;
-}
-
-/* Modal */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 200;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.6);
-  justify-content: center;
-  align-items: center;
-}
-.modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  max-width: 500px;
-  width: 90%;
-  text-align: center;
-}
-.modal-content img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-.close {
-  float: right;
-  cursor: pointer;
-  font-size: 20px;
 }
 
 /* Responsive */
