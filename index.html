@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CR - AgroSmart AI</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <!-- Header -->
   <header>
     <div class="logo">
-      <img src="images/logo1.png" alt="Logo">
+      <img src="images/logo1.png" alt="Logo" class="logo-img">
       <span>CR - AgroSmart AI</span>
     </div>
     <nav id="navbar">
@@ -21,7 +22,7 @@
     <div class="menu-toggle" id="menu-toggle">☰</div>
   </header>
 
-  <!-- Hero Banner -->
+  <!-- Hero -->
   <section class="hero" id="hero">
     <div class="overlay"></div>
     <div class="hero-content">
@@ -34,60 +35,28 @@
   <!-- Library -->
   <section class="plants" id="library">
     <h2>🌱 Thư viện cây trồng</h2>
-    <div class="plant-grid">
-      <div class="plant-card">
-        <img src="images/lua.jpg" alt="Lúa">
-        <div class="card-info">
-          <h3>Lúa</h3>
-        </div>
-      </div>
-      <div class="plant-card">
-        <img src="images/ngo.jpg" alt="Ngô">
-        <div class="card-info">
-          <h3>Ngô</h3>
-        </div>
-      </div>
-      <div class="plant-card">
-        <img src="images/cachua.jpg" alt="Cà chua">
-        <div class="card-info">
-          <h3>Cà chua</h3>
-        </div>
-      </div>
-      <!-- thêm các card khác -->
-    </div>
+    <input type="text" id="search" placeholder="🔍 Tìm kiếm cây trồng...">
+    <div class="plant-grid" id="plant-grid"></div>
+  </section>
+
+  <!-- Plant Info -->
+  <section id="plant-info" class="plant-info hidden">
+    <h2 id="plant-name"></h2>
+    <canvas id="plant-chart" width="400" height="200"></canvas>
+    <div id="plant-details"></div>
   </section>
 
   <!-- About -->
   <section class="about" id="about">
     <h2>ℹ️ Giới thiệu</h2>
     <p>
-      AgroSmart AI lấy cảm hứng từ các nền tảng hiện đại, mang đến giao diện sinh động và trực quan như các website game.
-      Trang web không chỉ cung cấp thông tin cây trồng mà còn tạo trải nghiệm cuốn hút hơn cho người dùng.
+      AgroSmart AI mang phong cách hiện đại, sinh động như website game, 
+      nhưng vẫn tập trung vào nội dung nông nghiệp số. Website cung cấp thư viện cây trồng, 
+      dữ liệu sinh trưởng và demo AI nhận diện bệnh cây qua hình ảnh.
     </p>
   </section>
 
-  <script>
-    // Navbar highlight khi cuộn
-    const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll(".nav-link");
-
-    window.addEventListener("scroll", () => {
-      let current = "";
-      sections.forEach((s) => {
-        if (scrollY >= s.offsetTop - 100) current = s.id;
-      });
-      navLinks.forEach((l) => {
-        l.classList.remove("active");
-        if (l.getAttribute("href").includes(current)) l.classList.add("active");
-      });
-    });
-
-    // Menu mobile toggle
-    const menuToggle = document.getElementById("menu-toggle");
-    const navbar = document.getElementById("navbar");
-    menuToggle.addEventListener("click", () => {
-      navbar.classList.toggle("show");
-    });
-  </script>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
