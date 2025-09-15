@@ -1,10 +1,9 @@
 const grid = document.getElementById("plant-grid");
 const search = document.getElementById("search");
-const modal = document.getElementById("plant-modal");
-const modalTitle = document.getElementById("modal-title");
-const modalImg = document.getElementById("modal-img");
-const modalDetails = document.getElementById("modal-details");
-const closeModal = document.querySelector(".close");
+const info = document.getElementById("plant-info");
+const nameEl = document.getElementById("plant-name");
+const detailsEl = document.getElementById("plant-details");
+let chart;
 
 // Hiển thị card
 function renderPlants(list) {
@@ -16,21 +15,19 @@ function renderPlants(list) {
                       <h3>${p.name}</h3>`;
     grid.appendChild(card);
 
-    // Click mở modal
+    // Click card → show info dưới
     card.addEventListener("click", () => {
-      modal.classList.add("show");
-      modal.style.display = "flex";
-      modalTitle.textContent = p.name;
-      modalImg.src = p.img;
-      modalDetails.innerHTML = `
+      info.classList.remove("hidden");
+      nameEl.textContent = p.name;
+      detailsEl.innerHTML = `
         <b>Nguồn gốc:</b> ${p.origin}<br>
         <b>Lợi ích dinh dưỡng:</b> ${p.nutrition}<br>
-        <b>Điều kiện:</b> Nhiệt độ ${p.temp}°C, Ẩm ${p.humidity}%, pH ${p.pH}, Ánh sáng ${p.light}h/ngày, Nước: ${p.water}
+        <b>Điều kiện:</b> Nhiệt độ ${p.temp}°C, Ẩm ${p.humidity}%, pH ${p.pH}, 
+        Ánh sáng ${p.light}h/ngày, Nước: ${p.water}
       `;
-
-      // Chart
-      const ctx = document.getElementById("modal-chart").getContext("2d");
-      new Chart(ctx, {
+      if (chart) chart.destroy();
+      const ctx = document.getElementById("plant-chart").getContext("2d");
+      chart = new Chart(ctx, {
         type: "radar",
         data: {
           labels: ["Nhiệt độ", "Độ ẩm", "pH", "Ánh sáng"],
@@ -42,6 +39,7 @@ function renderPlants(list) {
           }]
         }
       });
+      info.scrollIntoView({ behavior: "smooth" });
     });
   });
 
@@ -60,18 +58,6 @@ search.addEventListener("input", () => {
   const val = search.value.toLowerCase();
   const filtered = plants.filter(p => p.name.toLowerCase().includes(val));
   renderPlants(filtered);
-});
-
-// Đóng modal
-closeModal.addEventListener("click", () => {
-  modal.classList.remove("show");
-  modal.style.display = "none";
-});
-window.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    modal.classList.remove("show");
-    modal.style.display = "none";
-  }
 });
 
 // Navbar highlight
