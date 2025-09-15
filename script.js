@@ -5,17 +5,18 @@ const nameEl = document.getElementById("plant-name");
 const detailsEl = document.getElementById("plant-details");
 let chart;
 
-// Hiển thị card
+// Render card
 function renderPlants(list) {
   grid.innerHTML = "";
   list.forEach((p) => {
     const card = document.createElement("div");
     card.className = "plant-card";
-    card.innerHTML = `<img src="${p.img}" alt="${p.name}">
-                      <h3>${p.name}</h3>`;
+    card.innerHTML = `
+      <img src="${p.img}" alt="${p.name}">
+      <div class="card-info"><h3>${p.name}</h3></div>
+    `;
     grid.appendChild(card);
 
-    // Click card → show info dưới
     card.addEventListener("click", () => {
       info.classList.remove("hidden");
       nameEl.textContent = p.name;
@@ -42,23 +43,7 @@ function renderPlants(list) {
       info.scrollIntoView({ behavior: "smooth" });
     });
   });
-
-  // Scroll animation
-  const cards = document.querySelectorAll(".plant-card");
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((e) => {
-      if (e.isIntersecting) e.target.classList.add("show");
-    });
-  }, { threshold: 0.2 });
-  cards.forEach((c) => observer.observe(c));
 }
-
-// Tìm kiếm
-search.addEventListener("input", () => {
-  const val = search.value.toLowerCase();
-  const filtered = plants.filter(p => p.name.toLowerCase().includes(val));
-  renderPlants(filtered);
-});
 
 // Navbar highlight
 const sections = document.querySelectorAll("section");
@@ -66,8 +51,7 @@ const navLinks = document.querySelectorAll(".nav-link");
 window.addEventListener("scroll", () => {
   let current = "";
   sections.forEach((s) => {
-    const top = window.scrollY;
-    if (top >= s.offsetTop - 100) current = s.getAttribute("id");
+    if (scrollY >= s.offsetTop - 100) current = s.id;
   });
   navLinks.forEach((l) => {
     l.classList.remove("active");
@@ -75,10 +59,17 @@ window.addEventListener("scroll", () => {
   });
 });
 
-// Dark mode
-document.getElementById("dark-toggle").addEventListener("click", () => {
-  document.body.classList.toggle("dark");
+// Menu toggle
+document.getElementById("menu-toggle").addEventListener("click", () => {
+  document.getElementById("navbar").classList.toggle("show");
 });
 
-// Render ban đầu
+// Render
 renderPlants(plants);
+
+// Tìm kiếm
+search.addEventListener("input", () => {
+  const val = search.value.toLowerCase();
+  const filtered = plants.filter(p => p.name.toLowerCase().includes(val));
+  renderPlants(filtered);
+});
