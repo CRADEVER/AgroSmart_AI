@@ -24,7 +24,7 @@
 
   <!-- Hero -->
   <section class="hero" id="hero">
-    <h1>Hệ thống cây trồng thông minh</h1>
+    <h1>Hệ thống cây trồng <span class="highlight">thông minh</span></h1>
     <p>Khám phá dữ liệu nông nghiệp & ứng dụng AI cho cây trồng</p>
     <input type="text" id="search" placeholder="🔍 Tìm kiếm cây trồng...">
   </section>
@@ -33,6 +33,13 @@
   <section class="plants" id="library">
     <h2>🌱 Thư viện cây trồng</h2>
     <div class="plant-grid" id="plant-grid"></div>
+  </section>
+
+  <!-- Plant Info -->
+  <section id="plant-info" class="plant-info hidden">
+    <h2 id="plant-name"></h2>
+    <canvas id="plant-chart" width="400" height="200"></canvas>
+    <div id="plant-details"></div>
   </section>
 
   <!-- About -->
@@ -45,17 +52,6 @@
       chính xác, tiết kiệm và bền vững.
     </p>
   </section>
-
-  <!-- Modal -->
-  <div id="plant-modal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2 id="modal-title"></h2>
-      <img id="modal-img" alt="">
-      <p id="modal-details"></p>
-      <canvas id="modal-chart"></canvas>
-    </div>
-  </div>
 
   <script src="data.js"></script>
   <script src="script.js"></script>
