@@ -2,16 +2,15 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CR - AgroSmart AI</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- Chart.js CDN (nếu môi trường offline, tải file Chart.js về và tham chiếu local) -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <!-- Navbar -->
   <header>
-    <div class="logo" id="logo">
+    <div class="logo" onclick="scrollToSection('home')">
       <img src="images/logo1.png" alt="Logo" />
       <span>CR - AgroSmart AI</span>
     </div>
@@ -19,7 +18,6 @@
       <a href="#home">Trang chủ</a>
       <a href="#plants">Thư viện</a>
       <a href="#intro">Giới thiệu</a>
-      <a href="#chatbot">AI Chatbot</a>
     </nav>
     <button id="dark-toggle">🌙</button>
   </header>
@@ -34,7 +32,7 @@
     <div class="hero-content">
       <h1>Hệ thống cây trồng <span>thông minh</span></h1>
       <p>Ứng dụng trí tuệ nhân tạo trong chẩn đoán bệnh cây trồng qua hình ảnh và xây dựng thư viện hỗ trợ nông nghiệp số (AgroSmart AI)</p>
-      <button id="ctaBtn" class="cta-btn">Khám phá ngay</button>
+      <button class="cta-btn" onclick="scrollToSection('plants')">Khám phá ngay</button>
     </div>
   </section>
 
@@ -43,7 +41,6 @@
     <h2>🌱 Thư viện cây trồng</h2>
     <input type="text" id="searchInput" placeholder="🔍 Tìm kiếm cây trồng..." />
     <div class="plant-grid" id="plantGrid"></div>
-
     <div class="plant-info hidden" id="plantInfo">
       <h2 id="plantName"></h2>
       <img id="plantImg" alt="Plant" />
