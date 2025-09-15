@@ -1,7 +1,7 @@
 const plants = [
   {
     name: "Lúa",
-    img: "images/lua",
+    img: "images/lua.jpg",
     temp: 28,
     humidity: 75,
     pH: 6,
@@ -10,7 +10,7 @@ const plants = [
   },
   {
     name: "Ngô",
-    img: "images/ngo",
+    img: "images/ngo.jpg",
     temp: 26,
     humidity: 70,
     pH: 6.5,
@@ -19,7 +19,7 @@ const plants = [
   },
   {
     name: "Cam",
-    img: "images/cam",
+    img: "images/cam.jpg",
     temp: 27,
     humidity: 75,
     pH: 6,
@@ -28,7 +28,7 @@ const plants = [
   },
   {
     name: "Cà chua",
-    img: "images/cachua",
+    img: "images/cachua.jpg",
     temp: 23,
     humidity: 70,
     pH: 6.5,
