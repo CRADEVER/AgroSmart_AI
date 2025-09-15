@@ -8,53 +8,63 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <!-- Header -->
+  <!-- Navbar -->
   <header>
-    <div class="logo">
-      <img src="images/logo1.png" alt="Logo" class="logo-img">
+    <div class="logo" onclick="scrollToSection('home')">
+      <img src="images/logo1.png" alt="Logo">
       <span>CR - AgroSmart AI</span>
     </div>
-    <nav id="navbar">
-      <a href="#hero" class="nav-link">Trang chủ</a>
-      <a href="#library" class="nav-link">Thư viện</a>
-      <a href="#about" class="nav-link">Giới thiệu</a>
+    <nav>
+      <a href="#home">Trang chủ</a>
+      <a href="#plants">Thư viện</a>
+      <a href="#intro">Giới thiệu</a>
+      <a href="#chatbot">AI Chatbot</a>
     </nav>
-    <div class="menu-toggle" id="menu-toggle">☰</div>
+    <button id="dark-toggle">🌙</button>
   </header>
 
-  <!-- Hero -->
-  <section class="hero" id="hero">
-    <div class="overlay"></div>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="video-container">
+      <video id="bg-video" autoplay muted loop></video>
+      <button class="nav-btn left" onclick="prevVideo()">❮</button>
+      <button class="nav-btn right" onclick="nextVideo()">❯</button>
+    </div>
     <div class="hero-content">
-      <h1><span>Hệ thống cây trồng</span> thông minh</h1>
-      <p>Khám phá dữ liệu nông nghiệp & ứng dụng AI cho cây trồng</p>
-      <a href="#library" class="btn">Khám phá ngay</a>
+      <h1>Hệ thống cây trồng <span>thông minh</span></h1>
+      <p>Ứng dụng trí tuệ nhân tạo trong chẩn đoán bệnh cây trồng qua hình ảnh và xây dựng thư viện hỗ trợ nông nghiệp số (AgroSmart AI)</p>
+      <button class="cta-btn" onclick="scrollToSection('plants')">Khám phá ngay</button>
     </div>
   </section>
 
-  <!-- Library -->
-  <section class="plants" id="library">
+  <!-- Plant Library -->
+  <section id="plants" class="plants">
     <h2>🌱 Thư viện cây trồng</h2>
-    <input type="text" id="search" placeholder="🔍 Tìm kiếm cây trồng...">
-    <div class="plant-grid" id="plant-grid"></div>
+    <input type="text" id="searchInput" placeholder="🔍 Tìm kiếm cây trồng...">
+    <div class="plant-grid" id="plantGrid"></div>
+    <div class="plant-info hidden" id="plantInfo">
+      <h2 id="plantName"></h2>
+      <img id="plantImg" alt="Plant">
+      <p id="plantDesc"></p>
+      <canvas id="plantChart"></canvas>
+      <p id="plantSource" class="source"></p>
+    </div>
   </section>
 
-  <!-- Plant Info -->
-  <section id="plant-info" class="plant-info hidden">
-    <h2 id="plant-name"></h2>
-    <canvas id="plant-chart" width="400" height="200"></canvas>
-    <div id="plant-details"></div>
-  </section>
-
-  <!-- About -->
-  <section class="about" id="about">
+  <!-- Intro -->
+  <section id="intro" class="intro">
     <h2>ℹ️ Giới thiệu</h2>
     <p>
-      AgroSmart AI mang phong cách hiện đại, sinh động như website game, 
-      nhưng vẫn tập trung vào nội dung nông nghiệp số. Website cung cấp thư viện cây trồng, 
-      dữ liệu sinh trưởng và demo AI nhận diện bệnh cây qua hình ảnh.
+      AgroSmart AI là dự án ứng dụng trí tuệ nhân tạo trong chẩn đoán bệnh cây trồng
+      qua hình ảnh, đồng thời xây dựng thư viện dữ liệu hỗ trợ nông nghiệp số nhằm
+      giúp nông dân tiếp cận công nghệ mới dễ dàng hơn.
     </p>
   </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 CR - AgroSmart AI | Nền tảng AI hỗ trợ nông nghiệp</p>
+  </footer>
 
   <script src="data.js"></script>
   <script src="script.js"></script>
