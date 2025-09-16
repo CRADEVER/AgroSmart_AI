@@ -2,81 +2,68 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AgroSmart AI</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- File CSS -->
   <link rel="stylesheet" href="style.css">
-  <!-- Chart.js CDN -->
+  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <!-- Navigation bar -->
-  <nav>
-    <div class="logo">AgroSmart AI</div>
-    <ul class="nav-links">
-      <li><a href="#intro">Giới thiệu</a></li>
-      <li><a href="#gallery">Thư viện cây trồng</a></li>
-      <li><button id="darkModeToggle">Chế độ tối</button></li>
-    </ul>
+  <!-- Thanh điều hướng -->
+  <nav id="navbar">
+    <a href="index.html"><img src="logo1.png" alt="AgroSmart AI Logo" class="logo"></a>
+    <h1>AgroSmart AI</h1>
+    <!-- Nút bật/tắt chế độ tối -->
+    <button id="themeToggle" title="Chuyển giao diện sáng/tối">🌙</button>
   </nav>
 
-  <!-- Video background -->
-  <div class="video-container">
-    <video id="bgVideo" autoplay muted loop></video>
+  <!-- Phần video nền toàn màn hình -->
+  <div id="video-container">
+    <video id="bgVideo" autoplay muted></video>
+    <button id="prev" class="video-btn">&lt;</button>
+    <button id="next" class="video-btn">&gt;</button>
+    <button id="exploreBtn">Khám phá ngay</button>
   </div>
 
-  <!-- Introduction section -->
-  <section id="intro">
-    <h1>Giới thiệu</h1>
-    <p>AgroSmart AI là nền tảng trực tuyến cung cấp thông tin về cây trồng phổ biến tại Nghệ An, hỗ trợ nông dân và nhà nghiên cứu trong việc tham khảo điều kiện và kỹ thuật canh tác.</p>
-    <p>Trang web tích hợp công nghệ AI để tư vấn trồng trọt, với thư viện cây trồng phong phú và các công cụ trực quan hóa dữ liệu.</p>
-  </section>
-
-  <!-- Plant gallery section -->
+  <!-- Phần thư viện cây trồng -->
   <section id="gallery">
     <h2>Thư viện cây trồng</h2>
     <input type="text" id="searchInput" placeholder="Tìm kiếm cây trồng...">
-    <div id="plantGrid" class="grid"></div>
+    <div id="plantCards" class="card-container"></div>
   </section>
 
-  <!-- Plant detail modal -->
-  <div id="detailModal" class="modal">
+  <!-- Modal chi tiết cây trồng -->
+  <div id="plantModal" class="modal">
     <div class="modal-content">
-      <span class="close">&times;</span>
-      <h3 id="modalName"></h3>
-      <p id="modalSciName"></p>
-      <img id="modalImg" src="" alt="Hình ảnh cây trồng">
-      <p><strong>Nguồn gốc: </strong><span id="modalOrigin"></span></p>
-      <p><strong>Vùng trồng: </strong><span id="modalRegion"></span></p>
-      <div class="charts">
-        <div class="chart-container">
-          <canvas id="chartConditions"></canvas>
-        </div>
-        <div class="chart-container">
-          <canvas id="chartNutrients"></canvas>
-        </div>
-      </div>
-      <p><strong>Dinh dưỡng chính: </strong><span id="modalMainNutrients"></span></p>
-      <p><strong>Năng suất: </strong><span id="modalYield"></span></p>
-      <p><strong>Thời vụ: </strong><span id="modalSeason"></span></p>
-      <p><strong>Cách chăm sóc: </strong><span id="modalCare"></span></p>
-      <p><strong>Nguồn: </strong><span id="modalSource"></span></p>
+      <span id="closeModal" class="close">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <p><em id="modalSciName"></em></p>
+      <p><strong>Nguồn gốc:</strong> <span id="modalOrigin"></span></p>
+      <p><strong>Điều kiện sinh trưởng:</strong> <span id="modalConditions"></span></p>
+      <canvas id="conditionsChart"></canvas>
+      <p><strong>Dinh dưỡng:</strong> <span id="modalNutrients"></span></p>
+      <canvas id="nutrientsChart"></canvas>
+      <p><strong>Mùa vụ:</strong> <span id="modalSeason"></span></p>
+      <p><strong>Năng suất:</strong> <span id="modalYield"></span></p>
+      <p><strong>Công dụng:</strong> <span id="modalUses"></span></p>
     </div>
   </div>
 
-  <!-- Chatbot section -->
-  <button id="chatToggle" class="chat-btn">Chatbot</button>
-  <div id="chatWindow" class="chat-window">
-    <div id="chatHeader"><span>Chat với AI</span><span class="closeChat">&times;</span></div>
-    <div id="chatBody" class="chat-body"></div>
-    <input type="text" id="chatInput" placeholder="Nhập tin nhắn...">
-    <button id="sendChat">Gửi</button>
+  <!-- Nút Chatbot cố định -->
+  <button id="chatbotToggle" class="chatbot-btn">Chatbot</button>
+  <!-- Modal Chatbot demo -->
+  <div id="chatbotModal" class="modal">
+    <div class="modal-content">
+      <span id="closeChatbot" class="close">&times;</span>
+      <h3>Chatbot AgroSmart</h3>
+      <p>(Đây là khung chat demo.)</p>
+    </div>
   </div>
 
-  <!-- Data scripts -->
-  <script src="data1.js"></script>
-  <script src="data2.js"></script>
-  <script src="data3.js"></script>
-  <!-- Main script -->
+  <!-- Nhúng file data và script -->
+  <script src="data.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
