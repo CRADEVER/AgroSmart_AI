@@ -1,184 +1,134 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // Background video
-  const video = document.getElementById('bgVideo');
-  const videos = [
-    'video1.mp4',
-    'video2.mp4',
-    'video3.mp4'
-  ];
-  let vidIndex = 0;
-  if(video) {
-    video.src = videos[0];
-    setInterval(() => {
-      vidIndex = (vidIndex + 1) % videos.length;
-      video.src = videos[vidIndex];
-      video.play();
-    }, 10000);
-  }
+// Danh sách video nền
+const videos = ["nen1.mp4", "nen2.mp4", "nen3.mp4", "nen4.mp4", "nen5.mp4"];
+let videoIndex = 0;
+const bgVideo = document.getElementById("bgVideo");
+const prevBtn = document.getElementById("prev");
+const nextBtn = document.getElementById("next");
+const exploreBtn = document.getElementById("exploreBtn");
 
-  // Dark mode toggle
-  const toggle = document.getElementById('darkModeToggle');
-  const currentMode = localStorage.getItem('darkMode');
-  if (currentMode === 'enabled') {
-    document.body.classList.add('dark-mode');
-  }
-  toggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    if (document.body.classList.contains('dark-mode')) {
-      localStorage.setItem('darkMode', 'enabled');
-    } else {
-      localStorage.setItem('darkMode', 'disabled');
-    }
-  });
+// Hàm tải video theo index
+function loadVideo(index) {
+  bgVideo.src = videos[index];
+  bgVideo.load();
+  bgVideo.play();
+}
+loadVideo(videoIndex);
 
-  // Combine plant data
-  const plantData = [...data1, ...data2, ...data3];
-
-  // Render plant cards
-  const grid = document.getElementById('plantGrid');
-  plantData.forEach((plant, index) => {
-    const card = document.createElement('div');
-    card.className = 'plant-card';
-    card.innerHTML = `
-      <img src="https://source.unsplash.com/featured/?${plant.imgQuery}" alt="${plant.name}" loading="lazy">
-      <h3>${plant.name}</h3>
-      <p><em>${plant.scientific}</em></p>
-    `;
-    card.addEventListener('click', () => openModal(index));
-    grid.appendChild(card);
-  });
-
-  // Search functionality
-  const searchInput = document.getElementById('searchInput');
-  searchInput.addEventListener('input', () => {
-    const filter = searchInput.value.toLowerCase();
-    document.querySelectorAll('.plant-card').forEach((card, idx) => {
-      const name = plantData[idx].name.toLowerCase();
-      card.style.display = name.includes(filter) ? 'block' : 'none';
-    });
-  });
-
-  // Modal dialog for details
-  const modal = document.getElementById('detailModal');
-  const closeBtn = document.querySelector('.modal .close');
-  closeBtn.addEventListener('click', () => modal.style.display = 'none');
-  window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.style.display = 'none';
-    }
-  });
-
-  // Chart variables
-  let condChart = null;
-  let nutChart = null;
-
-  // Function to open and populate modal
-  function openModal(index) {
-    const plant = plantData[index];
-    document.getElementById('modalName').innerText = plant.name;
-    document.getElementById('modalSciName').innerText = plant.scientific;
-    document.getElementById('modalImg').src = `https://source.unsplash.com/featured/?${plant.imgQuery}`;
-    document.getElementById('modalOrigin').innerText = plant.origin;
-    document.getElementById('modalRegion').innerText = plant.region;
-    document.getElementById('modalMainNutrients').innerText = plant.mainNutrients;
-    document.getElementById('modalYield').innerText = plant.yield;
-    document.getElementById('modalSeason').innerText = plant.season;
-    document.getElementById('modalCare').innerText = plant.care;
-    document.getElementById('modalSource').innerText = plant.source;
-
-    // Conditions chart
-    const ctx1 = document.getElementById('chartConditions').getContext('2d');
-    if (condChart) { condChart.destroy(); }
-    condChart = new Chart(ctx1, {
-      type: 'bar',
-      data: {
-        labels: ['Nhiệt độ (°C)','Độ ẩm (%)','Độ sáng','Độ pH'],
-        datasets: [{
-          label: 'Điều kiện sinh trưởng',
-          data: [
-            plant.conditions.temperature,
-            plant.conditions.humidity,
-            plant.conditions.light,
-            plant.conditions.ph
-          ],
-          backgroundColor: ['#e76f51','#e76f51','#e76f51','#e76f51']
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    });
-
-    // Nutrients chart
-    const ctx2 = document.getElementById('chartNutrients').getContext('2d');
-    if (nutChart) { nutChart.destroy(); }
-    nutChart = new Chart(ctx2, {
-      type: 'bar',
-      data: {
-        labels: ['Đạm (N)','Lân (P)','Kali (K)'],
-        datasets: [{
-          label: 'Nhu cầu dưỡng chất',
-          data: [
-            plant.nutrients.N,
-            plant.nutrients.P,
-            plant.nutrients.K
-          ],
-          backgroundColor: ['#2a9d8f','#2a9d8f','#2a9d8f']
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    });
-
-    modal.style.display = 'flex';
-  }
-
-  // Chatbot toggle
-  const chatToggle = document.getElementById('chatToggle');
-  const chatWindow = document.getElementById('chatWindow');
-  const closeChat = document.querySelector('.closeChat');
-  const chatBody = document.getElementById('chatBody');
-  const chatInput = document.getElementById('chatInput');
-  const sendChat = document.getElementById('sendChat');
-
-  chatToggle.addEventListener('click', () => {
-    chatWindow.classList.toggle('open');
-  });
-  closeChat.addEventListener('click', () => {
-    chatWindow.classList.remove('open');
-  });
-
-  sendChat.addEventListener('click', () => {
-    const msg = chatInput.value.trim();
-    if (!msg) return;
-    const userMsg = document.createElement('div');
-    userMsg.className = 'chat-message user';
-    userMsg.innerHTML = `<strong>Tôi:</strong> ${msg}`;
-    chatBody.appendChild(userMsg);
-    chatInput.value = '';
-    chatBody.scrollTop = chatBody.scrollHeight;
-    // Simulate AI response
-    setTimeout(() => {
-      const botMsg = document.createElement('div');
-      botMsg.className = 'chat-message bot';
-      let response = '';
-      if (msg.toLowerCase().includes('xin chào') || msg.toLowerCase().includes('hello')) {
-        response = 'Xin chào! Tôi có thể giúp gì cho bạn?';
-      } else {
-        response = 'Xin lỗi, tôi chưa đủ thông minh để trả lời.';
-      }
-      botMsg.innerHTML = `<strong>AI:</strong> ${response}`;
-      chatBody.appendChild(botMsg);
-      chatBody.scrollTop = chatBody.scrollHeight;
-    }, 500);
-  });
+// Chuyển sang video trước
+prevBtn.addEventListener("click", () => {
+  videoIndex = (videoIndex - 1 + videos.length) % videos.length;
+  loadVideo(videoIndex);
 });
+// Chuyển sang video sau
+nextBtn.addEventListener("click", () => {
+  videoIndex = (videoIndex + 1) % videos.length;
+  loadVideo(videoIndex);
+});
+// Tự động chuyển khi video kết thúc
+bgVideo.addEventListener("ended", () => {
+  nextBtn.click();
+});
+
+// Nút "Khám phá ngay" cuộn đến thư viện cây trồng
+exploreBtn.addEventListener("click", () => {
+  document.getElementById("gallery").scrollIntoView({ behavior: "smooth" });
+});
+
+// Kết xuất các thẻ cây trồng từ plantData
+const plantCards = document.getElementById("plantCards");
+function renderPlants(plants) {
+  plantCards.innerHTML = ""; // Xóa hết trước khi render lại
+  plants.forEach(plant => {
+    const card = document.createElement("div");
+    card.className = "card";
+    // Lấy ảnh đầu tiên làm ảnh đại diện
+    const img = document.createElement("img");
+    img.src = plant.images[0];
+    img.alt = plant.name;
+    const title = document.createElement("h3");
+    title.textContent = plant.name;
+    const origin = document.createElement("p");
+    origin.textContent = plant.origin;
+    card.appendChild(img);
+    card.appendChild(title);
+    card.appendChild(origin);
+    // Sự kiện click mở modal chi tiết
+    card.addEventListener("click", () => openModal(plant));
+    plantCards.appendChild(card);
+  });
+}
+// Ban đầu render tất cả cây
+renderPlants(plantData);
+
+// Tìm kiếm cây theo tên
+const searchInput = document.getElementById("searchInput");
+searchInput.addEventListener("input", () => {
+  const keyword = searchInput.value.toLowerCase();
+  const filtered = plantData.filter(p => p.name.toLowerCase().includes(keyword));
+  renderPlants(filtered);
+});
+
+// Modal chi tiết cây trồng
+const modal = document.getElementById("plantModal");
+const closeModal = document.getElementById("closeModal");
+closeModal.onclick = () => { modal.style.display = "none"; };
+
+// Hàm mở modal và điền dữ liệu cây
+function openModal(plant) {
+  document.getElementById("modalTitle").textContent = plant.name;
+  document.getElementById("modalSciName").textContent = plant.scientificName;
+  document.getElementById("modalOrigin").textContent = plant.origin;
+  document.getElementById("modalConditions").textContent = 
+    `Nhiệt độ ${plant.conditions[0]}°C, Độ ẩm ${plant.conditions[1]}%, pH đất ${plant.conditions[2]}, Ánh sáng ${plant.conditions[3]}.`;
+  document.getElementById("modalNutrients").textContent = 
+    `N=${plant.nutrients[0]}%, P=${plant.nutrients[1]}%, K=${plant.nutrients[2]}%.`;
+  document.getElementById("modalSeason").textContent = plant.season;
+  document.getElementById("modalYield").textContent = plant.yield;
+  document.getElementById("modalUses").textContent = plant.uses;
+  // Vẽ biểu đồ conditions
+  const ctxC = document.getElementById("conditionsChart").getContext("2d");
+  new Chart(ctxC, {
+    type: 'bar',
+    data: {
+      labels: ["Nhiệt độ", "Độ ẩm", "pH đất", "Ánh sáng"],
+      datasets: [{
+        label: plant.name,
+        data: plant.conditions,
+        backgroundColor: ['rgba(255, 99, 132, 0.6)','rgba(54, 162, 235, 0.6)','rgba(255, 206, 86, 0.6)','rgba(75, 192, 192, 0.6)'],
+        borderColor: ['rgb(255,99,132)','rgb(54,162,235)','rgb(255,206,86)','rgb(75,192,192)'],
+        borderWidth: 1
+      }]
+    },
+    options: { scales: { y: { beginAtZero: true } } }
+  });
+  // Vẽ biểu đồ nutrients
+  const ctxN = document.getElementById("nutrientsChart").getContext("2d");
+  new Chart(ctxN, {
+    type: 'bar',
+    data: {
+      labels: ["Đạm (N)", "Lân (P)", "Kali (K)"],
+      datasets: [{
+        label: plant.name,
+        data: plant.nutrients,
+        backgroundColor: ['rgba(153, 102, 255, 0.6)','rgba(255, 159, 64, 0.6)','rgba(255, 205, 86, 0.6)'],
+        borderColor: ['rgb(153,102,255)','rgb(255,159,64)','rgb(255,205,86)'],
+        borderWidth: 1
+      }]
+    },
+    options: { scales: { y: { beginAtZero: true } } }
+  });
+  modal.style.display = "block";
+}
+
+// Bật/tắt chế độ tối
+const themeToggle = document.getElementById("themeToggle");
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+});
+
+// Điều khiển Chatbot (mở/đóng modal chat)
+const chatToggle = document.getElementById("chatbotToggle");
+const chatModal = document.getElementById("chatbotModal");
+const closeChat = document.getElementById("closeChatbot");
+chatToggle.onclick = () => { chatModal.style.display = "block"; };
+closeChat.onclick = () => { chatModal.style.display = "none"; };
