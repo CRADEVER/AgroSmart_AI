@@ -1,76 +1,50 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AgroSmart AI</title>
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <!-- NAVBAR -->
-  <header class="navbar">
-    <a href="index.html" class="logo-link" title="Trang chủ"><img src="logo1.png" alt="AgroSmart AI Logo" class="logo-img"></a>
-    <div class="brand">AgroSmart AI</div>
-    <div class="nav-actions">
-      <button id="themeToggle" aria-label="Chuyển giao diện" class="icon-btn" title="Bật/tắt chế độ tối">🌙</button>
+  <nav class="navbar glass">
+    <a href="index.html" class="logo">
+      <img src="images/logo1.png" alt="AgroSmart AI Logo">
+      <span>AgroSmart AI</span>
+    </a>
+    <button id="darkModeToggle">🌙</button>
+  </nav>
+
+  <!-- VIDEO BACKGROUND -->
+  <section class="video-section">
+    <video id="bgVideo" autoplay muted playsinline></video>
+    <div class="video-controls">
+      <button id="prevVideo" class="nav-btn">&#10094;</button>
+      <button id="nextVideo" class="nav-btn">&#10095;</button>
     </div>
-  </header>
-
-  <!-- VIDEO BACKGROUND CONTAINER -->
-  <div class="video-wrap">
-    <video id="bgVideo" playsinline muted></video>
-
-    <button id="prevVideo" class="video-nav left" aria-label="Video trước">❮</button>
-    <button id="nextVideo" class="video-nav right" aria-label="Video sau">❯</button>
-
     <button id="exploreBtn" class="explore-btn">Khám phá ngay</button>
-  </div>
+  </section>
 
   <!-- GALLERY -->
-  <main id="mainContent">
-    <section id="gallery" class="gallery-section">
-      <div class="container">
-        <h2>Thư viện cây trồng phổ biến tại Nghệ An</h2>
-        <div class="search-row">
-          <input id="searchInput" placeholder="Tìm kiếm cây trồng..." aria-label="Tìm kiếm cây trồng">
-          <div id="countInfo" class="count-info"></div>
-        </div>
-        <div id="cardsContainer" class="cards-grid" aria-live="polite"></div>
-      </div>
-    </section>
-  </main>
+  <section id="gallery" class="gallery">
+    <h2>Thư viện Cây trồng</h2>
+    <div id="plantGrid" class="plant-grid"></div>
+  </section>
 
-  <!-- PLANT MODAL -->
-  <div id="plantModal" class="modal" role="dialog" aria-hidden="true">
-    <div class="modal-panel glass">
-      <button class="modal-close" id="modalClose" aria-label="Đóng">✕</button>
-      <div id="modalBody" class="modal-body">
-        <!-- Content injected by JS -->
-      </div>
+  <!-- MODAL -->
+  <div id="plantModal" class="modal">
+    <div class="modal-content glass">
+      <span class="close">&times;</span>
+      <h3 id="modalTitle"></h3>
+      <p id="modalDesc"></p>
+      <canvas id="conditionChart"></canvas>
+      <canvas id="nutritionChart"></canvas>
+      <table id="plantTable"></table>
     </div>
   </div>
 
-  <!-- CHATBOT DEMO -->
-  <button id="chatToggle" class="chat-btn" title="Chatbot">Chatbot</button>
-  <div id="chatModal" class="modal" aria-hidden="true">
-    <div class="modal-panel glass small">
-      <button class="modal-close" id="chatClose" aria-label="Đóng">✕</button>
-      <div class="modal-body">
-        <h3>Chatbot AgroSmart (Demo)</h3>
-        <p>Xin chào! Đây là khung chat demo.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Data and main script -->
   <script src="data.js"></script>
   <script src="script.js"></script>
 </body>
