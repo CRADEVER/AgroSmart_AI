@@ -1,76 +1,82 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AgroSmart AI</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
+  <!-- Chart.js CDN -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <!-- Navbar -->
-  <header>
-    <div class="logo" onclick="scrollToSection('home')">
-      <img src="images/logo.png" alt="Logo" />
-      <span>AgroSmart AI</span>
-    </div>
-    <nav>
-      <a href="#home">Trang chủ</a>
-      <a href="#plants">Thư viện</a>
-      <a href="#intro">Giới thiệu</a>
-      <a href="#chatbot">AI Chatbot</a>
-    </nav>
-    <button id="dark-toggle">🌙</button>
-  </header>
+  <!-- Navigation bar -->
+  <nav>
+    <div class="logo">AgroSmart AI</div>
+    <ul class="nav-links">
+      <li><a href="#intro">Giới thiệu</a></li>
+      <li><a href="#gallery">Thư viện cây trồng</a></li>
+      <li><button id="darkModeToggle">Chế độ tối</button></li>
+    </ul>
+  </nav>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <h1>Hệ thống cây trồng <span>thông minh</span></h1>
-      <p>Thư viện nông nghiệp số & ứng dụng AI hỗ trợ chăm sóc cây trồng</p>
-      <button class="cta-btn" onclick="scrollToSection('plants')">Khám phá ngay</button>
-    </div>
+  <!-- Video background -->
+  <div class="video-container">
+    <video id="bgVideo" autoplay muted loop></video>
+  </div>
+
+  <!-- Introduction section -->
+  <section id="intro">
+    <h1>Giới thiệu</h1>
+    <p>AgroSmart AI là nền tảng trực tuyến cung cấp thông tin về cây trồng phổ biến tại Nghệ An, hỗ trợ nông dân và nhà nghiên cứu trong việc tham khảo điều kiện và kỹ thuật canh tác.</p>
+    <p>Trang web tích hợp công nghệ AI để tư vấn trồng trọt, với thư viện cây trồng phong phú và các công cụ trực quan hóa dữ liệu.</p>
   </section>
 
-  <!-- Plant Library -->
-  <section id="plants" class="plants">
-    <h2>🌱 Thư viện cây trồng</h2>
-    <input type="text" id="searchInput" placeholder="🔍 Tìm kiếm cây trồng..." />
-    <div class="plant-grid" id="plantGrid"></div>
+  <!-- Plant gallery section -->
+  <section id="gallery">
+    <h2>Thư viện cây trồng</h2>
+    <input type="text" id="searchInput" placeholder="Tìm kiếm cây trồng...">
+    <div id="plantGrid" class="grid"></div>
   </section>
 
-  <!-- Modal -->
-  <div id="modal" class="modal hidden">
+  <!-- Plant detail modal -->
+  <div id="detailModal" class="modal">
     <div class="modal-content">
-      <span class="close" onclick="closeModal()">×</span>
-      <div class="modal-left">
-        <h2 id="modalTitle"></h2>
-        <img id="plantImg" alt="Plant" />
-        <p id="plantDesc"></p>
+      <span class="close">&times;</span>
+      <h3 id="modalName"></h3>
+      <p id="modalSciName"></p>
+      <img id="modalImg" src="" alt="Hình ảnh cây trồng">
+      <p><strong>Nguồn gốc: </strong><span id="modalOrigin"></span></p>
+      <p><strong>Vùng trồng: </strong><span id="modalRegion"></span></p>
+      <div class="charts">
+        <div class="chart-container">
+          <canvas id="chartConditions"></canvas>
+        </div>
+        <div class="chart-container">
+          <canvas id="chartNutrients"></canvas>
+        </div>
       </div>
-      <div class="modal-right">
-        <div id="plantExtra"></div>
-        <canvas id="plantChart"></canvas>
-        <div id="nutriBox"></div>
-        <p id="plantSource" class="source"></p>
-      </div>
+      <p><strong>Dinh dưỡng chính: </strong><span id="modalMainNutrients"></span></p>
+      <p><strong>Năng suất: </strong><span id="modalYield"></span></p>
+      <p><strong>Thời vụ: </strong><span id="modalSeason"></span></p>
+      <p><strong>Cách chăm sóc: </strong><span id="modalCare"></span></p>
+      <p><strong>Nguồn: </strong><span id="modalSource"></span></p>
     </div>
   </div>
 
-  <!-- Intro -->
-  <section id="intro" class="intro">
-    <h2>ℹ️ Giới thiệu</h2>
-    <p>
-      AgroSmart AI là dự án ứng dụng trí tuệ nhân tạo trong chẩn đoán bệnh cây trồng
-      qua hình ảnh, đồng thời xây dựng thư viện dữ liệu nông nghiệp số để hỗ trợ nông dân.
-    </p>
-  </section>
+  <!-- Chatbot section -->
+  <button id="chatToggle" class="chat-btn">Chatbot</button>
+  <div id="chatWindow" class="chat-window">
+    <div id="chatHeader"><span>Chat với AI</span><span class="closeChat">&times;</span></div>
+    <div id="chatBody" class="chat-body"></div>
+    <input type="text" id="chatInput" placeholder="Nhập tin nhắn...">
+    <button id="sendChat">Gửi</button>
+  </div>
 
-  <footer>
-    <p>© 2025 AgroSmart AI | Hỗ trợ bởi AI & dữ liệu mở</p>
-  </footer>
-
-  <script src="data.js"></script>
+  <!-- Data scripts -->
+  <script src="data1.js"></script>
+  <script src="data2.js"></script>
+  <script src="data3.js"></script>
+  <!-- Main script -->
   <script src="script.js"></script>
 </body>
 </html>
