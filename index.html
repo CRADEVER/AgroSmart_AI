@@ -2,48 +2,40 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AgroSmart AI</title>
+  <title>🌱 Hệ thống cây trồng thông minh</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <!-- NAVBAR -->
-  <nav class="navbar glass">
-    <a href="index.html" class="logo">
-      <img src="images/logo1.png" alt="AgroSmart AI Logo">
-      <span>AgroSmart AI</span>
-    </a>
-    <button id="darkModeToggle">🌙</button>
-  </nav>
+  <!-- Header -->
+  <header>
+    <div class="logo">🌱 AgroSmart</div>
+    <nav>
+      <a href="#">Trang chủ</a>
+      <a href="#">Thư viện</a>
+      <a href="#">AI Nhận diện</a>
+      <a href="#">Liên hệ</a>
+    </nav>
+  </header>
 
-  <!-- VIDEO BACKGROUND -->
-  <section class="video-section">
-    <video id="bgVideo" autoplay muted playsinline></video>
-    <div class="video-controls">
-      <button id="prevVideo" class="nav-btn">&#10094;</button>
-      <button id="nextVideo" class="nav-btn">&#10095;</button>
-    </div>
-    <button id="exploreBtn" class="explore-btn">Khám phá ngay</button>
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Hệ thống cây trồng <span class="highlight">thông minh</span></h1>
+    <p>Khám phá dữ liệu nông nghiệp & ứng dụng AI cho cây trồng</p>
   </section>
 
-  <!-- GALLERY -->
-  <section id="gallery" class="gallery">
-    <h2>Thư viện Cây trồng</h2>
-    <div id="plantGrid" class="plant-grid"></div>
+  <!-- Plant List -->
+  <section class="plants">
+    <h2>🌾 Thư viện cây trồng</h2>
+    <div id="plant-list" class="plant-grid"></div>
   </section>
 
-  <!-- MODAL -->
-  <div id="plantModal" class="modal">
-    <div class="modal-content glass">
-      <span class="close">&times;</span>
-      <h3 id="modalTitle"></h3>
-      <p id="modalDesc"></p>
-      <canvas id="conditionChart"></canvas>
-      <canvas id="nutritionChart"></canvas>
-      <table id="plantTable"></table>
-    </div>
-  </div>
+  <!-- Plant Info -->
+  <section id="plant-info" class="plant-info hidden">
+    <h2 id="plant-name"></h2>
+    <canvas id="plant-chart" width="400" height="200"></canvas>
+    <div id="plant-details"></div>
+  </section>
 
   <script src="data.js"></script>
   <script src="script.js"></script>

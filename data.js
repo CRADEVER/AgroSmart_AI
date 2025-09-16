@@ -1,27 +1,51 @@
-// Đây chỉ là dữ liệu mẫu để chạy thử
+// Dữ liệu cây trồng (đã gộp từ data1.js, data2.js, data3.js)
 const plantData = [
   {
-    name: "Lúa",
-    scientific: "Oryza sativa",
-    description: "Cây lúa là cây lương thực chính...",
-    conditions: { "Nhiệt độ (°C)": 28, "Độ ẩm (%)": 80, "pH đất": 6 },
-    nutrition: { "N (kg/ha)": 100, "P (kg/ha)": 60, "K (kg/ha)": 80 },
-    summary: [
-      ["Nguồn gốc", "Châu Á"],
-      ["Mùa vụ", "2 vụ/năm"],
-      ["Năng suất", "5 tấn/ha"]
+    id: 1,
+    name: "Cà chua",
+    scientificName: "Solanum lycopersicum",
+    origin: "Nam Mỹ",
+    // Điều kiện sinh trưởng (dữ liệu để vẽ biểu đồ)
+    conditions: [22, 70, 6.0, 9.0],  // [Nhiệt độ (°C), Độ ẩm (%), pH đất, Ánh sáng (độ chiếu sáng)]
+    // Dinh dưỡng (hàm lượng phần trăm N-P-K cơ bản)
+    nutrients: [10, 5, 5], // [Đạm N, Lân P, Kali K]
+    season: "Mùa xuân – Hè",
+    yield: "80 tấn/ha",
+    uses: "Ăn sống, làm nước ép, chế biến thực phẩm.",
+    images: [
+      // URL ảnh minh họa
+      "https://images.pexels.com/photos/2718416/pexels-photo-2718416.jpeg",
+      "https://images.pexels.com/photos/1327838/pexels-photo-1327838.jpeg"
     ]
   },
   {
+    id: 2,
+    name: "Lúa",
+    scientificName: "Oryza sativa",
+    origin: "Châu Á",
+    conditions: [26, 80, 5.5, 8.0],  
+    nutrients: [8, 4, 4],
+    season: "Mùa xuân – Hè",
+    yield: "60 tạ/ha",
+    uses: "Lúa gạo làm lương thực chính, sản xuất thực phẩm.",
+    images: [
+      "https://images.pexels.com/photos/33810107/pexels-photo-33810107.jpeg",
+      "https://images.pexels.com/photos/96715/pexels-photo-96715.jpeg"
+    ]
+  },
+  {
+    id: 3,
     name: "Ngô",
-    scientific: "Zea mays",
-    description: "Ngô là cây lương thực quan trọng...",
-    conditions: { "Nhiệt độ (°C)": 25, "Độ ẩm (%)": 70, "pH đất": 6.5 },
-    nutrition: { "N (kg/ha)": 120, "P (kg/ha)": 50, "K (kg/ha)": 60 },
-    summary: [
-      ["Nguồn gốc", "Mỹ"],
-      ["Mùa vụ", "1-2 vụ/năm"],
-      ["Năng suất", "4 tấn/ha"]
+    scientificName: "Zea mays",
+    origin: "Châu Mỹ",
+    conditions: [25, 65, 6.5, 7.5],  
+    nutrients: [7, 3, 6],
+    season: "Mùa hạ – Thu",
+    yield: "100 tạ/ha",
+    uses: "Thực phẩm, thức ăn chăn nuôi, công nghiệp.",
+    images: [
+      "https://images.pexels.com/photos/96715/pexels-photo-96715.jpeg",
+      "https://images.pexels.com/photos/7539901/pexels-photo-7539901.jpeg"
     ]
   }
 ];
