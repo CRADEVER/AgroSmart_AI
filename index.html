@@ -7,6 +7,14 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+  <!-- Video Background -->
+  <div class="video-container">
+    <video id="bg-video" autoplay muted loop></video>
+    <div class="overlay"></div>
+    <button class="video-btn left" onclick="prevVideo()">❮</button>
+    <button class="video-btn right" onclick="nextVideo()">❯</button>
+  </div>
+
   <!-- Header -->
   <header>
     <div class="logo" onclick="location.href='index.html'">
@@ -19,7 +27,7 @@
       <a href="#plants">Thư viện</a>
       <a href="#ai">AI Chatbot</a>
     </nav>
-    <input type="text" id="search-box" placeholder="🔍 Tìm kiếm cây trồng...">
+    <input type="text" id="search-box" placeholder="🔍 Tìm cây...">
     <button id="dark-toggle">🌙</button>
   </header>
 
