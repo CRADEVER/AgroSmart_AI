@@ -14,6 +14,7 @@ function loadVideo(index) {
   if (index >= videos.length) index = 0;
   currentVideo = index;
   bgVideo.src = videos[currentVideo];
+  bgVideo.load();
   bgVideo.play();
 }
 function nextVideo() { loadVideo(currentVideo + 1); }
@@ -31,7 +32,8 @@ const plantSource = document.getElementById("plant-source");
 const ctx = document.getElementById("plant-chart").getContext("2d");
 let chart;
 
-const plants = ["lua","ngo","cam","cachua","mia","che","lac","khoai","chuoi","xoai"];
+const plants =
+["lua","ngo","cam","cachua","mia","che","lac","khoai","chuoi","xoai"];
 
 async function loadPlants() {
   plantList.innerHTML = "";
@@ -39,7 +41,8 @@ async function loadPlants() {
     const data = await fetch(`plants/${p}.json`).then(r => r.json());
     const card = document.createElement("div");
     card.className = "plant-card";
-    card.innerHTML = `<img src="${data.img}" alt="${data.name}"><h3>${data.name}</h3>`;
+    card.innerHTML = `<img src="${data.img}" 
+alt="${data.name}"><h3>${data.name}</h3>`;
     card.onclick = () => showPlant(data);
     plantList.appendChild(card);
   }
