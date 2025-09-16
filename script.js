@@ -1,134 +1,97 @@
-// Danh sách video nền
-const videos = ["nen1.mp4", "nen2.mp4", "nen3.mp4", "nen4.mp4", "nen5.mp4"];
-let videoIndex = 0;
-const bgVideo = document.getElementById("bgVideo");
-const prevBtn = document.getElementById("prev");
-const nextBtn = document.getElementById("next");
-const exploreBtn = document.getElementById("exploreBtn");
+const videos = [
+  'videos/nen1.mp4',
+  'videos/nen2.mp4',
+  'videos/nen3.mp4',
+  'videos/nen4.mp4',
+  'videos/nen5.mp4'
+];
 
-// Hàm tải video theo index
+let currentVideoIndex = 0;
+const bgVideo = document.getElementById('bgVideo');
+const prevVideoBtn = document.getElementById('prevVideo');
+const nextVideoBtn = document.getElementById('nextVideo');
+
 function loadVideo(index) {
   bgVideo.src = videos[index];
-  bgVideo.load();
   bgVideo.play();
 }
-loadVideo(videoIndex);
 
-// Chuyển sang video trước
-prevBtn.addEventListener("click", () => {
-  videoIndex = (videoIndex - 1 + videos.length) % videos.length;
-  loadVideo(videoIndex);
-});
-// Chuyển sang video sau
-nextBtn.addEventListener("click", () => {
-  videoIndex = (videoIndex + 1) % videos.length;
-  loadVideo(videoIndex);
-});
-// Tự động chuyển khi video kết thúc
-bgVideo.addEventListener("ended", () => {
-  nextBtn.click();
+loadVideo(currentVideoIndex);
+
+prevVideoBtn.addEventListener('click', () => {
+  currentVideoIndex = (currentVideoIndex - 1 + videos.length) % videos.length;
+  loadVideo(currentVideoIndex);
 });
 
-// Nút "Khám phá ngay" cuộn đến thư viện cây trồng
-exploreBtn.addEventListener("click", () => {
-  document.getElementById("gallery").scrollIntoView({ behavior: "smooth" });
+nextVideoBtn.addEventListener('click', () => {
+  currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+  loadVideo(currentVideoIndex);
 });
 
-// Kết xuất các thẻ cây trồng từ plantData
-const plantCards = document.getElementById("plantCards");
-function renderPlants(plants) {
-  plantCards.innerHTML = ""; // Xóa hết trước khi render lại
-  plants.forEach(plant => {
-    const card = document.createElement("div");
-    card.className = "card";
-    // Lấy ảnh đầu tiên làm ảnh đại diện
-    const img = document.createElement("img");
-    img.src = plant.images[0];
-    img.alt = plant.name;
-    const title = document.createElement("h3");
-    title.textContent = plant.name;
-    const origin = document.createElement("p");
-    origin.textContent = plant.origin;
-    card.appendChild(img);
-    card.appendChild(title);
-    card.appendChild(origin);
-    // Sự kiện click mở modal chi tiết
-    card.addEventListener("click", () => openModal(plant));
-    plantCards.appendChild(card);
-  });
-}
-// Ban đầu render tất cả cây
-renderPlants(plantData);
-
-// Tìm kiếm cây theo tên
-const searchInput = document.getElementById("searchInput");
-searchInput.addEventListener("input", () => {
-  const keyword = searchInput.value.toLowerCase();
-  const filtered = plantData.filter(p => p.name.toLowerCase().includes(keyword));
-  renderPlants(filtered);
+bgVideo.addEventListener('ended', () => {
+  currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+  loadVideo(currentVideoIndex);
 });
 
-// Modal chi tiết cây trồng
-const modal = document.getElementById("plantModal");
-const closeModal = document.getElementById("closeModal");
-closeModal.onclick = () => { modal.style.display = "none"; };
+// Explore button scroll
+document.getElementById('exploreBtn').addEventListener('click', () => {
+  document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+});
 
-// Hàm mở modal và điền dữ liệu cây
+// Dark mode toggle
+const darkToggle = document.getElementById('darkModeToggle');
+darkToggle.addEventListener('click', () => {
+  document.body.classList.toggle('light');
+});
+
+// Render plant cards
+const plantGrid = document.getElementById('plantGrid');
+plantData.forEach((plant, idx) => {
+  const card = document.createElement('div');
+  card.className = 'plant-card glass';
+  card.innerHTML = `<h4>${plant.name}</h4><p><i>${plant.scientific}</i></p>`;
+  card.addEventListener('click', () => openModal(plant));
+  plantGrid.appendChild(card);
+});
+
+// Modal
+const modal = document.getElementById('plantModal');
+const closeBtn = modal.querySelector('.close');
+
+closeBtn.onclick = () => { modal.style.display = 'none'; }
+
 function openModal(plant) {
-  document.getElementById("modalTitle").textContent = plant.name;
-  document.getElementById("modalSciName").textContent = plant.scientificName;
-  document.getElementById("modalOrigin").textContent = plant.origin;
-  document.getElementById("modalConditions").textContent = 
-    `Nhiệt độ ${plant.conditions[0]}°C, Độ ẩm ${plant.conditions[1]}%, pH đất ${plant.conditions[2]}, Ánh sáng ${plant.conditions[3]}.`;
-  document.getElementById("modalNutrients").textContent = 
-    `N=${plant.nutrients[0]}%, P=${plant.nutrients[1]}%, K=${plant.nutrients[2]}%.`;
-  document.getElementById("modalSeason").textContent = plant.season;
-  document.getElementById("modalYield").textContent = plant.yield;
-  document.getElementById("modalUses").textContent = plant.uses;
-  // Vẽ biểu đồ conditions
-  const ctxC = document.getElementById("conditionsChart").getContext("2d");
-  new Chart(ctxC, {
+  modal.style.display = 'block';
+  document.getElementById('modalTitle').textContent = `${plant.name} (${plant.scientific})`;
+  document.getElementById('modalDesc').textContent = plant.description;
+
+  // Table summary
+  const table = document.getElementById('plantTable');
+  table.innerHTML = plant.summary.map(row => `<tr><td>${row[0]}</td><td>${row[1]}</td></tr>`).join('');
+
+  // Chart conditions
+  new Chart(document.getElementById('conditionChart'), {
     type: 'bar',
     data: {
-      labels: ["Nhiệt độ", "Độ ẩm", "pH đất", "Ánh sáng"],
+      labels: Object.keys(plant.conditions),
       datasets: [{
-        label: plant.name,
-        data: plant.conditions,
-        backgroundColor: ['rgba(255, 99, 132, 0.6)','rgba(54, 162, 235, 0.6)','rgba(255, 206, 86, 0.6)','rgba(75, 192, 192, 0.6)'],
-        borderColor: ['rgb(255,99,132)','rgb(54,162,235)','rgb(255,206,86)','rgb(75,192,192)'],
-        borderWidth: 1
+        label: 'Điều kiện sinh trưởng',
+        data: Object.values(plant.conditions),
+        backgroundColor: 'rgba(75, 192, 192, 0.6)'
       }]
-    },
-    options: { scales: { y: { beginAtZero: true } } }
+    }
   });
-  // Vẽ biểu đồ nutrients
-  const ctxN = document.getElementById("nutrientsChart").getContext("2d");
-  new Chart(ctxN, {
+
+  // Chart nutrition
+  new Chart(document.getElementById('nutritionChart'), {
     type: 'bar',
     data: {
-      labels: ["Đạm (N)", "Lân (P)", "Kali (K)"],
+      labels: Object.keys(plant.nutrition),
       datasets: [{
-        label: plant.name,
-        data: plant.nutrients,
-        backgroundColor: ['rgba(153, 102, 255, 0.6)','rgba(255, 159, 64, 0.6)','rgba(255, 205, 86, 0.6)'],
-        borderColor: ['rgb(153,102,255)','rgb(255,159,64)','rgb(255,205,86)'],
-        borderWidth: 1
+        label: 'Nhu cầu dinh dưỡng',
+        data: Object.values(plant.nutrition),
+        backgroundColor: 'rgba(255, 159, 64, 0.6)'
       }]
-    },
-    options: { scales: { y: { beginAtZero: true } } }
+    }
   });
-  modal.style.display = "block";
 }
-
-// Bật/tắt chế độ tối
-const themeToggle = document.getElementById("themeToggle");
-themeToggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
-});
-
-// Điều khiển Chatbot (mở/đóng modal chat)
-const chatToggle = document.getElementById("chatbotToggle");
-const chatModal = document.getElementById("chatbotModal");
-const closeChat = document.getElementById("closeChatbot");
-chatToggle.onclick = () => { chatModal.style.display = "block"; };
-closeChat.onclick = () => { chatModal.style.display = "none"; };
