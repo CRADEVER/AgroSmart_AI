@@ -1,0 +1,18 @@
+{
+  "name": "Nhãn",
+  "scientific_name": "Dimocarpus longan",
+  "img": "images/nhan.jpg",
+  "origin": "Nhãn có nguồn gốc từ khu vực Đông Nam Á, được trồng nhiều ở Trung Quốc, Thái Lan và Việt Nam. Ở Việt Nam, nhãn được trồng rộng rãi ở đồng bằng sông Hồng, đồng bằng sông Cửu Long và một số tỉnh Bắc Trung Bộ, trong đó có Nghệ An.",
+  "conditions": {
+    "temperature": "24 - 32°C (chịu nóng tốt)",
+    "humidity": "65 - 85%",
+    "ph": "5.5 - 7.0",
+    "light": "Ưa sáng, cần nhiều ánh nắng trực tiếp",
+    "soil": "Đất thịt pha cát hoặc đất phù sa, tơi xốp, thoát nước tốt"
+  },
+  "care": "Nhãn thường được nhân giống bằng chiết cành hoặc ghép để giữ chất lượng. Khi trồng, cần đào hố 60x60x60 cm, bón lót 20 - 30 kg phân chuồng hoai mục, 0,5 - 1 kg lân và tro trấu. Trong 2 - 3 năm đầu cần tưới đủ ẩm, bón phân định kỳ 3 - 4 lần/năm. Cần cắt tỉa cành sau mỗi vụ thu hoạch để cây thông thoáng, hạn chế sâu bệnh và kích thích ra hoa. Để xử lý cho cây ra hoa đồng loạt, người trồng thường áp dụng kỹ thuật xiết nước hoặc sử dụng chất điều hòa sinh trưởng.",
+  "diseases": "Một số bệnh và sâu hại thường gặp trên nhãn gồm: sâu đục quả, sâu đục thân, bệnh thán thư, bệnh chổi rồng. Biện pháp phòng trị: vệ sinh vườn thường xuyên, cắt tỉa cành sâu bệnh, bao quả khi còn non, sử dụng bẫy sinh học (pheromone, bẫy đèn) và phun thuốc BVTV theo khuyến cáo khi mật độ sâu bệnh cao.",
+  "nutrition": "Quả nhãn chứa nhiều đường, vitamin C, vitamin B, khoáng chất (kali, magie, sắt). Ăn nhãn giúp bổ sung năng lượng nhanh, tốt cho hệ thần kinh và tuần hoàn máu, tuy nhiên ăn quá nhiều dễ gây nóng trong người.",
+  "economic_value": "Nhãn là loại cây ăn quả có giá trị kinh tế cao, đặc biệt ở các giống nhãn lồng, nhãn tiêu da bò, nhãn Hương Chi. Sản lượng nhãn xuất khẩu của Việt Nam ngày càng tăng, đặc biệt sang Trung Quốc và Mỹ. Ở Nghệ An, nhãn là cây trồng mang lại thu nhập ổn định cho nông hộ nếu áp dụng đúng kỹ thuật canh tác.",
+  "source": "Wikipedia; PlantVillage; FAO; Cục Trồng trọt - Bộ NN&PTNT"
+}

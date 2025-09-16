@@ -1,0 +1,18 @@
+{
+  "name": "Nghệ",
+  "scientific_name": "Curcuma longa",
+  "img": "images/nghe.jpg",
+  "origin": "Nghệ có nguồn gốc từ khu vực Nam Á, được trồng rộng rãi ở Ấn Độ, Đông Nam Á và Việt Nam. Ở Nghệ An và nhiều tỉnh miền Trung, nghệ được trồng phổ biến để lấy củ làm gia vị và dược liệu.",
+  "conditions": {
+    "temperature": "20 - 30°C",
+    "humidity": "70 - 85%",
+    "ph": "5.5 - 7.0",
+    "light": "Ưa bóng bán phần, không chịu nắng gắt liên tục",
+    "soil": "Đất thịt nhẹ, nhiều mùn, thoát nước tốt"
+  },
+  "care": "Nghệ thường được trồng bằng củ giống. Trước khi trồng, đất cần được cày bừa kỹ, làm luống cao để tránh ngập úng. Củ giống chọn loại chắc, không sâu bệnh, dài 3 - 5 cm, có ít nhất 1 - 2 mắt mầm. Khoảng cách trồng 25 - 30 cm, mật độ 40.000 - 50.000 bụi/ha. Cần bón lót phân hữu cơ hoai mục và phân lân. Trong quá trình sinh trưởng, bón thúc thêm NPK 2 - 3 lần, chú trọng kali để tăng chất lượng củ. Cần thường xuyên vun gốc, làm cỏ, tỉa bỏ lá già. Thời gian sinh trưởng khoảng 7 - 9 tháng, thu hoạch khi lá nghệ ngả vàng và héo.",
+  "diseases": "Nghệ có thể bị thối củ, héo rũ do vi khuẩn, bệnh đốm lá, và bị hại bởi sâu đục củ, tuyến trùng. Biện pháp phòng trừ: chọn giống sạch bệnh, luân canh với cây khác họ, xử lý đất bằng vôi bột hoặc chế phẩm sinh học, bảo quản củ giống nơi khô ráo. Khi cần có thể sử dụng thuốc BVTV sinh học.",
+  "nutrition": "Củ nghệ chứa nhiều tinh bột, tinh dầu và đặc biệt là curcumin – hoạt chất quý có tác dụng chống viêm, chống oxy hóa, hỗ trợ tiêu hóa, làm lành vết thương và phòng ngừa ung thư. Nghệ cũng cung cấp vitamin C, E, K và một số khoáng chất.",
+  "economic_value": "Nghệ có giá trị kinh tế cao nhờ nhu cầu sử dụng lớn trong chế biến thực phẩm, mỹ phẩm và dược liệu. Bột nghệ, tinh bột nghệ, curcumin chiết xuất từ nghệ là những sản phẩm thương mại quan trọng. Ở Nghệ An, nghệ được coi là cây trồng giúp tăng thu nhập bền vững cho nông dân.",
+  "source": "Wikipedia; PlantVillage; FAO; Cục Trồng trọt - Bộ NN&PTNT"
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Bưởi",
+  "scientific_name": "Citrus maxima",
+  "img": "images/buoi.jpg",
+  "origin": "Bưởi có nguồn gốc từ Đông Nam Á và Nam Trung Quốc. Việt Nam là một trong những nước trồng bưởi lâu đời với nhiều giống đặc sản nổi tiếng như bưởi Phúc Trạch (Hà Tĩnh), bưởi Diễn (Hà Nội), bưởi Đoan Hùng (Phú Thọ). Ở Nghệ An, bưởi được trồng tại nhiều huyện miền núi và trung du, vừa để ăn tươi vừa để bán thương mại.",
+  "conditions": {
+    "temperature": "23 - 30°C",
+    "humidity": "70 - 85%",
+    "ph": "5.5 - 6.5",
+    "light": "Cần ánh sáng đầy đủ, 8 - 10 giờ/ngày",
+    "soil": "Đất phù sa ven sông, đất thịt nhẹ, nhiều mùn, thoát nước tốt"
+  },
+  "care": "Bưởi thường được nhân giống bằng ghép cành để giữ đặc tính giống. Trồng với khoảng cách 4 - 5 m, mật độ 400 - 500 cây/ha. Cần bón lót phân hữu cơ hoai mục, phân lân và vôi bột. Trong quá trình sinh trưởng, bón thúc NPK định kỳ theo giai đoạn: sau khi ra hoa, đậu quả và nuôi quả. Tưới nước thường xuyên, đặc biệt giai đoạn khô hạn và quả phát triển. Cần tỉa cành, tạo tán để cây thông thoáng, giảm sâu bệnh và tăng chất lượng quả.",
+  "diseases": "Bưởi thường bị bệnh vàng lá Greening, loét vi khuẩn, thán thư, chảy gôm, và sâu vẽ bùa. Biện pháp phòng trừ: sử dụng giống sạch bệnh, ghép gốc kháng, tỉa cành hợp lý, vệ sinh vườn, bón phân cân đối. Khi mật độ bệnh cao có thể dùng thuốc sinh học hoặc BVTV theo khuyến cáo.",
+  "nutrition": "Quả bưởi giàu vitamin C, chất xơ, kali, pectin và các chất chống oxy hóa như naringenin. Bưởi giúp tăng cường hệ miễn dịch, hỗ trợ tiêu hóa, tốt cho tim mạch, kiểm soát cân nặng và giảm cholesterol.",
+  "economic_value": "Bưởi là loại cây ăn quả có giá trị kinh tế cao, dễ tiêu thụ trên thị trường nội địa và có tiềm năng xuất khẩu. Các vùng chuyên canh bưởi cho thu nhập ổn định, nhiều nơi đã xây dựng thương hiệu bưởi VietGAP, OCOP. Nghệ An đang mở rộng diện tích bưởi để phục vụ thị trường trong nước và hướng tới xuất khẩu.",
+  "source": "Wikipedia; PlantVillage; FAO; Cục Trồng trọt - Bộ NN&PTNT"
+}

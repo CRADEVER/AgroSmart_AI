@@ -1,0 +1,18 @@
+{
+  "name": "Cà phê",
+  "scientific_name": "Coffea spp.",
+  "img": "images/cafe.jpg",
+  "origin": "Cà phê có nguồn gốc từ vùng nhiệt đới châu Phi, đặc biệt là Ethiopia. Từ thế kỷ XVII, cà phê được du nhập vào nhiều nước và trở thành cây công nghiệp quan trọng. Ở Việt Nam, cà phê được trồng từ cuối thế kỷ XIX, tập trung chủ yếu ở Tây Nguyên (Đắk Lắk, Gia Lai, Lâm Đồng). Nghệ An cũng có diện tích trồng cà phê nhỏ ở vùng đồi núi.",
+  "conditions": {
+    "temperature": "18 - 25°C",
+    "humidity": "70 - 85%",
+    "ph": "5.0 - 6.5",
+    "light": "Ưa sáng nhẹ, cần bóng che trong giai đoạn cây non",
+    "soil": "Đất bazan, đất đỏ vàng, tơi xốp, giàu mùn, thoát nước tốt"
+  },
+  "care": "Cà phê được trồng bằng cây con từ vườn ươm. Khoảng cách trồng phổ biến 3 x 3 m hoặc 3,5 x 3,5 m. Bón lót phân hữu cơ hoai mục, phân lân và vôi. Trong quá trình sinh trưởng, cần bón thúc NPK định kỳ, kết hợp tỉa cành, tạo tán để cây thông thoáng. Cà phê cần tưới nước đều, đặc biệt vào mùa khô và giai đoạn ra hoa, nuôi quả. Thời gian từ trồng đến thu hoạch quả đầu tiên khoảng 3 năm, năng suất cao nhất từ năm thứ 5 – 20.",
+  "diseases": "Cà phê thường bị bệnh gỉ sắt, nấm hồng, khô cành, tuyến trùng, và bị hại bởi mọt đục cành, rệp sáp. Biện pháp phòng trừ: trồng giống kháng bệnh (như TR4, TR9), vệ sinh vườn, bón phân cân đối, cắt tỉa cành, và phun chế phẩm sinh học hoặc BVTV khi cần thiết.",
+  "nutrition": "Hạt cà phê chứa nhiều caffeine, polyphenol, chất chống oxy hóa, giúp kích thích hệ thần kinh, tăng cường sự tỉnh táo, hỗ trợ trao đổi chất. Ngoài ra còn có protein, lipid và khoáng chất (kali, magie).",
+  "economic_value": "Cà phê là cây công nghiệp có giá trị xuất khẩu hàng đầu của Việt Nam, đứng thứ 2 thế giới về sản lượng xuất khẩu. Ngoài sản phẩm cà phê rang xay, hạt cà phê còn được dùng để chế biến cà phê hòa tan, cà phê đặc sản. Ở Nghệ An, diện tích chưa lớn nhưng đang được mở rộng để đa dạng hóa cây trồng công nghiệp.",
+  "source": "Wikipedia; PlantVillage; FAO; Cục Trồng trọt - Bộ NN&PTNT"
+}

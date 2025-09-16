@@ -1,0 +1,18 @@
+{
+  "name": "Xoài",
+  "scientific_name": "Mangifera indica",
+  "img": "images/xoai.jpg",
+  "origin": "Xoài có nguồn gốc từ khu vực Nam Á (Ấn Độ, Myanmar), sau đó được du nhập và trồng rộng rãi tại các vùng nhiệt đới. Ở Việt Nam, xoài được trồng phổ biến tại đồng bằng sông Cửu Long, Đông Nam Bộ, Bắc Trung Bộ và Nghệ An, nơi có điều kiện khí hậu nắng ấm phù hợp.",
+  "conditions": {
+    "temperature": "24 - 35°C (tối ưu 27 - 32°C)",
+    "humidity": "60 - 80%",
+    "ph": "5.5 - 7.5",
+    "light": "Cần nhiều ánh sáng trực tiếp, trung bình 8 - 10 giờ/ngày",
+    "soil": "Đất cát pha hoặc đất phù sa, thoát nước tốt, giàu dinh dưỡng"
+  },
+  "care": "Xoài thường được trồng bằng cây ghép để đảm bảo chất lượng quả ổn định. Trước khi trồng cần đào hố (60x60x60 cm), bón lót phân chuồng hoai mục (20 - 30 kg/hố) kết hợp phân lân. Cây cần được tưới nước đều đặn trong giai đoạn kiến thiết cơ bản (1 - 3 năm đầu). Hàng năm cần cắt tỉa cành để tạo tán cân đối, loại bỏ cành sâu bệnh, giúp cây thông thoáng. Khi cây ra hoa, có thể xử lý ra hoa bằng biện pháp kỹ thuật (KNO3, Paclobutrazol) để điều chỉnh thời vụ thu hoạch. Bón phân NPK cân đối theo giai đoạn sinh trưởng, tăng kali giai đoạn nuôi quả. Chú ý phòng trừ sâu bệnh, đặc biệt là ruồi đục quả.",
+  "diseases": "Các bệnh phổ biến gồm thán thư (làm đen cuống và quả non), sương mai, bệnh đốm vi khuẩn, héo rũ, cùng với sâu hại như ruồi vàng đục quả, sâu đục thân, bọ xít muỗi. Biện pháp phòng trừ: tỉa cành tạo tán thông thoáng, bao quả bằng túi nilon, bẫy ruồi vàng bằng pheromone, sử dụng thuốc BVTV sinh học hoặc hoá học đúng liều lượng khi cần thiết.",
+  "nutrition": "Xoài giàu vitamin A, C, E, B6, chất xơ, kali và chất chống oxy hóa. Ăn xoài giúp tăng cường hệ miễn dịch, tốt cho mắt, hỗ trợ tiêu hoá và giảm nguy cơ bệnh tim mạch.",
+  "economic_value": "Xoài là cây ăn quả nhiệt đới có giá trị kinh tế cao, sản lượng lớn phục vụ tiêu thụ nội địa và xuất khẩu (nhất là sang Trung Quốc, Nhật Bản, Hàn Quốc). Giá trị thương phẩm cao nhất ở các giống xoài cát Hòa Lộc, xoài Đài Loan, xoài keo. Ở Nghệ An, xoài cũng là cây xóa đói giảm nghèo, mang lại thu nhập ổn định cho nông hộ.",
+  "source": "Wikipedia; PlantVillage; FAO; Cục Trồng trọt - Bộ NN&PTNT"
+}

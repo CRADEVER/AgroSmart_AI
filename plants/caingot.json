@@ -1,0 +1,18 @@
+{
+  "name": "Cải ngọt",
+  "scientific_name": "Brassica rapa var. chinensis",
+  "img": "images/caingot.jpg",
+  "origin": "Cải ngọt có nguồn gốc từ Trung Quốc, hiện nay được trồng rộng rãi ở các nước châu Á, trong đó có Việt Nam. Đây là loại rau ăn lá phổ biến trong bữa ăn hằng ngày, dễ trồng, cho thu hoạch nhanh. Nghệ An trồng nhiều cải ngọt vào vụ đông xuân, đặc biệt ở các vùng ven đô và nông hộ nhỏ lẻ.",
+  "conditions": {
+    "temperature": "18 - 30°C",
+    "humidity": "65 - 80%",
+    "ph": "5.5 - 6.8",
+    "light": "Ưa sáng, cần 6 - 8 giờ ánh nắng trực tiếp/ngày",
+    "soil": "Đất phù sa, đất thịt nhẹ, tơi xốp, giàu mùn và thoát nước tốt"
+  },
+  "care": "Cải ngọt thường được gieo hạt trực tiếp. Trước khi gieo, đất cần làm tơi, bón lót phân hữu cơ hoai mục và lân. Gieo hạt theo hàng cách nhau 15 - 20 cm, sau khi cây mọc thì tỉa bớt để mật độ vừa phải. Tưới nước giữ ẩm đều, tránh úng. Cần bón thúc 1 - 2 lần bằng NPK hoặc phân hữu cơ sinh học. Thời gian sinh trưởng 25 - 35 ngày, có thể thu hoạch khi lá xanh mướt và non. Nên luân canh với cây khác để hạn chế sâu bệnh.",
+  "diseases": "Cải ngọt thường gặp bệnh sương mai, thối nhũn, bọ nhảy, sâu tơ, sâu xanh. Biện pháp phòng trừ: che phủ lưới, luân canh cây trồng, vệ sinh ruộng, sử dụng chế phẩm sinh học (nấm Trichoderma, dịch tỏi ớt gừng) và thuốc BVTV an toàn khi cần.",
+  "nutrition": "Cải ngọt giàu vitamin A, C, K, axit folic, sắt, canxi và chất xơ. Ăn cải ngọt giúp tăng cường sức đề kháng, tốt cho mắt, xương, tiêu hóa và tim mạch. Rau cải ngọt ít calo, thích hợp cho chế độ ăn lành mạnh.",
+  "economic_value": "Cải ngọt là rau ăn lá ngắn ngày, dễ trồng, dễ tiêu thụ, mang lại thu nhập nhanh cho nông dân. Ở Nghệ An, cải ngọt là loại rau vụ đông quan trọng cung cấp cho thị trường nội tỉnh và các tỉnh lân cận.",
+  "source": "Wikipedia; PlantVillage; FAO; Cục Trồng trọt - Bộ NN&PTNT"
+}

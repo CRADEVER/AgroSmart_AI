@@ -1,0 +1,18 @@
+{
+  "name": "Ca cao",
+  "scientific_name": "Theobroma cacao",
+  "img": "images/cacao.jpg",
+  "origin": "Cây ca cao có nguồn gốc từ lưu vực sông Amazon (Nam Mỹ), sau đó được trồng ở nhiều vùng nhiệt đới trên thế giới. Tại Việt Nam, ca cao được du nhập từ thế kỷ XIX, trồng nhiều ở Tây Nguyên, Đông Nam Bộ và một số tỉnh miền Trung, trong đó có Nghệ An ở quy mô thử nghiệm.",
+  "conditions": {
+    "temperature": "22 - 30°C",
+    "humidity": "70 - 85%",
+    "ph": "5.0 - 7.5",
+    "light": "Ưa bóng bán phần, cần được che mát 30 - 40% ánh sáng trực tiếp trong giai đoạn non",
+    "soil": "Đất đỏ bazan hoặc đất phù sa, tơi xốp, giàu mùn, thoát nước tốt"
+  },
+  "care": "Cây ca cao được nhân giống bằng hạt, ghép chồi hoặc cành. Khi trồng cần có cây che bóng như chuối hoặc dừa để bảo vệ cây non. Mật độ trồng 3 x 3 m hoặc 4 x 4 m. Cần bón phân hữu cơ hoai mục kết hợp NPK cân đối, chú trọng kali và magiê để tăng năng suất và chất lượng hạt. Tưới nước đều, đặc biệt trong mùa khô. Tỉa cành tạo tán giúp thông thoáng, hạn chế sâu bệnh và dễ thu hoạch. Thời gian ra hoa sau 3 năm trồng, thu hoạch quả sau 5 - 6 tháng kể từ khi đậu quả.",
+  "diseases": "Ca cao thường bị bệnh thối trái đen (do nấm Phytophthora), khô cành, rệp sáp, sâu đục quả. Biện pháp phòng trừ: vệ sinh vườn thường xuyên, thu gom tiêu hủy quả bệnh, trồng giống kháng, tỉa cành tạo thông thoáng, sử dụng chế phẩm sinh học hoặc thuốc BVTV hợp lý.",
+  "nutrition": "Hạt ca cao chứa nhiều chất béo (bơ ca cao), carbohydrate, protein, giàu chất chống oxy hóa như flavonoid, polyphenol. Ca cao có tác dụng tăng cường tuần hoàn máu, cải thiện tim mạch, chống oxy hóa, hỗ trợ tinh thần và cải thiện tâm trạng.",
+  "economic_value": "Ca cao là cây công nghiệp có giá trị xuất khẩu cao, nguyên liệu sản xuất chocolate, bơ ca cao và nhiều sản phẩm thực phẩm, mỹ phẩm. Ở Việt Nam, diện tích ca cao chưa lớn nhưng có tiềm năng phát triển, nhất là khi kết hợp trồng xen với dừa, điều, hoặc cây ăn quả khác để tăng hiệu quả kinh tế.",
+  "source": "Wikipedia; FAO; PlantVillage; Cục Trồng trọt - Bộ NN&PTNT"
+}

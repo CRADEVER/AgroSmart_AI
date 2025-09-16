@@ -1,0 +1,18 @@
+{
+  "name": "Ớt",
+  "scientific_name": "Capsicum annuum",
+  "img": "images/ot.jpg",
+  "origin": "Ớt có nguồn gốc từ khu vực Trung – Nam Mỹ, sau đó được du nhập và trồng rộng rãi ở nhiều nước châu Á, trong đó có Việt Nam. Nghệ An và nhiều tỉnh miền Trung trồng ớt để làm gia vị và phục vụ xuất khẩu.",
+  "conditions": {
+    "temperature": "20 - 30°C (tối ưu 25 - 28°C)",
+    "humidity": "60 - 80%",
+    "ph": "5.5 - 6.8",
+    "light": "Cần ánh sáng trực tiếp 6 - 8 giờ/ngày",
+    "soil": "Đất cát pha hoặc đất thịt nhẹ, tơi xốp, thoát nước tốt, giàu mùn"
+  },
+  "care": "Ớt có thể gieo trực tiếp hoặc gieo cây con rồi cấy. Trước khi trồng cần xử lý đất và bón lót phân hữu cơ hoai mục kết hợp NPK. Khi cây cao 15 - 20 cm nên cắm cọc giữ thẳng, tỉa bỏ lá già, cành yếu. Ớt cần tưới nước giữ ẩm đều, tránh ngập úng. Trong quá trình sinh trưởng nên bón thúc 3 - 4 lần bằng phân hữu cơ hoặc NPK để cây ra nhiều hoa, đậu quả tốt.",
+  "diseases": "Các bệnh thường gặp gồm: héo rũ vi khuẩn, thán thư, phấn trắng, bệnh xoăn lá do virus. Côn trùng hại: rệp, bọ trĩ, sâu xanh. Biện pháp phòng trừ: dùng giống kháng bệnh, luân canh, bón phân cân đối, phun chế phẩm sinh học (Trichoderma, neem) hoặc thuốc BVTV khi cần.",
+  "nutrition": "Ớt chứa nhiều vitamin C, A, E, chất chống oxy hóa và capsaicin – hợp chất tạo vị cay có tác dụng tăng cường trao đổi chất, hỗ trợ tiêu hóa, giảm đau và chống viêm.",
+  "economic_value": "Ớt là cây gia vị quan trọng, nhu cầu cao quanh năm. Ngoài tiêu thụ trong nước, ớt còn là mặt hàng xuất khẩu có giá trị kinh tế lớn, mang lại thu nhập ổn định cho nông dân ở Nghệ An và nhiều tỉnh khác.",
+  "source": "Wikipedia; PlantVillage; FAO; Cục Trồng trọt - Bộ NN&PTNT"
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Ổi",
+  "scientific_name": "Psidium guajava",
+  "img": "images/oi.jpg",
+  "origin": "Ổi có nguồn gốc từ vùng nhiệt đới châu Mỹ, sau đó được du nhập vào nhiều nước châu Á, trong đó có Việt Nam. Ở Nghệ An và nhiều tỉnh khác, ổi được trồng rộng rãi nhờ khả năng thích nghi tốt và năng suất cao.",
+  "conditions": {
+    "temperature": "23 - 30°C",
+    "humidity": "60 - 85%",
+    "ph": "5.0 - 7.0",
+    "light": "Cần nhiều ánh sáng trực tiếp 6 - 8 giờ/ngày",
+    "soil": "Đất thịt nhẹ hoặc đất phù sa, giàu dinh dưỡng, thoát nước tốt"
+  },
+  "care": "Ổi thường được nhân giống bằng chiết cành hoặc ghép để đảm bảo chất lượng quả. Khi trồng, cần đào hố 60x60x60 cm, bón lót 20 - 30 kg phân chuồng hoai mục, 0,5 kg lân. Cây cần được tưới đủ ẩm trong 1 - 2 năm đầu. Sau đó, ổi chịu hạn khá tốt. Cần thường xuyên cắt tỉa cành vượt, cành sâu bệnh để cây thông thoáng, dễ ra hoa kết quả. Khi cây ra hoa, nên tỉa bớt hoa để tập trung nuôi quả. Để hạn chế sâu bệnh và cải thiện chất lượng, có thể bao quả bằng túi nilon hoặc giấy khi quả còn nhỏ.",
+  "diseases": "Ổi thường bị ruồi đục quả, sâu đục thân, bệnh thán thư, bệnh ghẻ ổi. Biện pháp phòng trừ: thu gom quả rụng để diệt nguồn bệnh, bẫy ruồi vàng bằng pheromone, phun chế phẩm sinh học hoặc thuốc BVTV hợp lý khi mật độ sâu bệnh cao.",
+  "nutrition": "Ổi rất giàu vitamin C (gấp 4 lần cam), vitamin A, chất xơ, kali và các chất chống oxy hóa. Ăn ổi giúp tăng cường miễn dịch, hỗ trợ tiêu hóa, giảm nguy cơ tiểu đường và bệnh tim mạch.",
+  "economic_value": "Ổi là cây ăn quả cho thu nhập cao, tiêu thụ mạnh trong nước và xuất khẩu. Năng suất trung bình 30 - 40 tấn/ha, giá trị kinh tế ổn định. Các giống ổi không hạt, ổi lê, ổi ruột hồng hiện rất được thị trường ưa chuộng.",
+  "source": "Wikipedia; PlantVillage; FAO; Cục Trồng trọt - Bộ NN&PTNT"
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Bí đỏ",
+  "scientific_name": "Cucurbita moschata",
+  "img": "images/bido.jpg"
+  "origin": "Bí đỏ có nguồn gốc từ khu vực châu Mỹ, sau đó được du nhập và trồng ở nhiều nước trên thế giới. Ở Việt Nam, bí đỏ được trồng phổ biến tại các tỉnh miền núi phía Bắc, Tây Nguyên và vùng Bắc Trung Bộ, trong đó có Nghệ An. Đây là loại cây thích hợp với khí hậu nhiệt đới gió mùa, dễ canh tác trên nhiều loại đất khác nhau, đặc biệt là đất thịt nhẹ, giàu dinh dưỡng và thoát nước tốt.",
+  "conditions": {
+    "temperature": "Bí đỏ sinh trưởng tốt trong khoảng nhiệt độ từ 24 - 28°C. Nếu dưới 18°C cây phát triển chậm, còn trên 35°C thì dễ rụng hoa, quả non.",
+    "humidity": "Độ ẩm đất thích hợp 65 - 75%. Cây không chịu úng nên cần làm đất tơi xốp, thoát nước tốt.",
+    "ph": "Thích hợp nhất ở khoảng pH 5.5 - 7.0. Nếu đất quá chua thì cần bón vôi cải tạo.",
+    "light": "Cần nhiều ánh sáng, trung bình 10 - 12 giờ/ngày. Nếu thiếu ánh sáng, cây còi cọc, ít đậu quả.",
+    "soil": "Đất thịt nhẹ, giàu mùn, có độ thoát nước tốt. Luống trồng cần cao 25 - 30 cm, rộng 1,2 - 1,5 m để tránh ngập úng."
+  },
+  "care": "Bí đỏ được gieo bằng hạt, thường gieo vào đầu vụ xuân (tháng 1 - 2) hoặc vụ đông (tháng 9 - 10). Trước khi gieo, hạt cần ngâm ấm 4 - 6 giờ rồi ủ nứt nanh. Khoảng cách trồng 40 x 50 cm, mật độ 1.500 - 2.000 cây/ha. Cần bón lót phân chuồng hoai mục (10 - 15 tấn/ha) kết hợp phân lân, kali và NPK. Trong quá trình sinh trưởng, nên bón thúc 2 - 3 lần, tập trung vào giai đoạn cây con và khi bắt đầu ra hoa. Cây cần được tưới đủ ẩm, nhưng không tưới quá nhiều nước dễ gây thối rễ. Khi cây ra nhánh, cần tỉa bỏ nhánh phụ, để 2 - 3 nhánh chính. Hoa bí đỏ nở nhiều vào buổi sáng, vì vậy nên chú ý thụ phấn bổ sung bằng tay nếu cần để tăng tỷ lệ đậu quả.",
+  "diseases": "Bí đỏ dễ mắc các bệnh như sương mai, phấn trắng, thối rễ, thối quả và héo xanh vi khuẩn. Biện pháp phòng trị: luân canh với cây trồng khác họ; sử dụng giống kháng bệnh; giữ vệ sinh đồng ruộng, nhổ bỏ cây bệnh sớm; phun thuốc gốc đồng hoặc chế phẩm sinh học (Trichoderma, nấm đối kháng) để phòng trừ nấm bệnh. Ngoài ra, cần chú ý phòng trừ côn trùng gây hại như bọ trĩ, rầy mềm và sâu ăn lá bằng cách dùng bẫy dính vàng hoặc thuốc bảo vệ thực vật sinh học.",
+  "nutrition": "Bí đỏ là thực phẩm giàu giá trị dinh dưỡng. Trong 100g bí đỏ có khoảng 26 calo, chứa nhiều beta-caroten (chuyển hóa thành vitamin A trong cơ thể), vitamin C, vitamin E, kali, chất xơ và chất chống oxy hóa. Ăn bí đỏ giúp tăng cường thị lực, giảm nguy cơ mắc bệnh tim mạch, tốt cho hệ tiêu hóa và hỗ trợ giảm cân. Hạt bí đỏ chứa nhiều dầu thực vật giàu acid béo không no, có lợi cho tim mạch và sức khỏe nam giới.",
+  "economic_value": "Bí đỏ là loại rau củ có giá trị kinh tế ổn định. Cây dễ trồng, ít tốn chi phí chăm sóc, năng suất trung bình đạt 15 - 20 tấn/ha. Bí đỏ có thể tiêu thụ tươi hoặc chế biến thành các sản phẩm như bột bí đỏ, bánh, sữa bí đỏ, snack, và xuất khẩu. Ngoài ra, hạt bí đỏ còn được dùng để ép dầu và làm thực phẩm chức năng. Ở Nghệ An, bí đỏ là loại rau màu quan trọng, góp phần tăng thu nhập cho nông dân trong vụ đông.",
+  "source": "FAO, PlantVillage, Wikipedia, Cục Trồng trọt - Bộ NN&PTNT"
+}

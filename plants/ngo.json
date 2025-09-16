@@ -1,0 +1,18 @@
+{
+  "name": "Ngô",
+  "scientific_name": "Zea mays",
+  "img": "images/ngo.jpg",
+  "origin": "Ngô có nguồn gốc từ Trung Mỹ, sau đó được du nhập và trồng rộng rãi trên khắp thế giới. Ở Việt Nam, ngô được trồng phổ biến từ đồng bằng cho đến miền núi. Nghệ An là một trong những tỉnh có diện tích trồng ngô lớn, vừa để làm lương thực cho người dân, vừa để chăn nuôi và chế biến công nghiệp.",
+  "conditions": {
+    "temperature": "20 - 32°C (tối ưu 24 - 28°C)",
+    "humidity": "60 - 75%",
+    "ph": "5.5 - 7.0",
+    "light": "Cần nhiều ánh sáng trực tiếp, 10 - 12 giờ/ngày",
+    "soil": "Đất tơi xốp, giàu hữu cơ, thoát nước tốt"
+  },
+  "care": "Trước khi trồng cần làm đất kỹ, bón lót phân chuồng hoai mục và phân lân. Ngô có thể gieo trực tiếp bằng hạt, mật độ khoảng 70 x 20 cm cho ngô lấy hạt. Trong quá trình sinh trưởng, cần bón thúc 2 - 3 lần, chú trọng bón đạm ở giai đoạn cây con và kali ở giai đoạn trổ cờ, phun râu để tăng năng suất. Cần làm cỏ và xới xáo thường xuyên, vun gốc để giữ ẩm. Ngô ưa ẩm nhưng không chịu úng, do đó cần tưới nước đều, nhất là khi cây trổ cờ - phun râu và giai đoạn hình thành hạt.",
+  "diseases": "Ngô thường bị bệnh đốm lá lớn, đốm lá nhỏ, khô vằn, khô héo rễ do nấm, và hại bởi sâu keo mùa thu, sâu đục thân, rệp ngô. Biện pháp phòng trừ: sử dụng giống kháng bệnh, luân canh cây trồng, xử lý hạt giống trước khi gieo, phun chế phẩm sinh học hoặc thuốc BVTV đúng cách khi mật độ sâu bệnh cao.",
+  "nutrition": "Ngô cung cấp nhiều carbohydrate (bột đường), protein, vitamin nhóm B, khoáng chất (magie, kali, sắt). Ngô ngọt có nhiều đường dễ tiêu, ngô vàng giàu carotenoid, đặc biệt là lutein và zeaxanthin tốt cho mắt.",
+  "economic_value": "Ngô là cây lương thực quan trọng, sau lúa. Ngô vừa được dùng làm thực phẩm trực tiếp (ngô nếp, ngô ngọt), vừa làm nguyên liệu chế biến công nghiệp (bột ngô, dầu ngô, siro ngô) và thức ăn chăn nuôi. Nghệ An có nhiều diện tích trồng ngô vụ đông, góp phần tăng thu nhập và đảm bảo an ninh lương thực.",
+  "source": "Wikipedia; PlantVillage; FAO; Cục Trồng trọt - Bộ NN&PTNT"
+}

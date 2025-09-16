@@ -1,0 +1,18 @@
+{
+  "name": "Mướp",
+  "scientific_name": "Luffa cylindrica",
+  "img": "images/muop.jpg",
+  "origin": "Mướp có nguồn gốc từ khu vực Nam Á và Đông Nam Á, được trồng phổ biến ở các nước nhiệt đới. Ở Việt Nam, mướp là loại rau quả quen thuộc, dễ trồng, xuất hiện ở khắp các vùng nông thôn, trong đó có Nghệ An.",
+  "conditions": {
+    "temperature": "20 - 32°C",
+    "humidity": "65 - 80%",
+    "ph": "6.0 - 6.8",
+    "light": "Ưa sáng, cần ánh nắng trực tiếp 8 - 10 giờ/ngày",
+    "soil": "Đất thịt nhẹ, nhiều mùn, thoát nước tốt"
+  },
+  "care": "Mướp thường được trồng bằng hạt. Trước khi gieo, hạt nên được ngâm ủ nảy mầm. Gieo hạt vào bầu hoặc trực tiếp xuống đất, mỗi hốc 2 - 3 hạt, khoảng cách 60 - 70 cm. Cần làm giàn cho mướp leo để cây phát triển tốt và quả thẳng đẹp. Bón lót phân hữu cơ hoai mục kết hợp lân, sau đó bón thúc nhiều lần bằng phân NPK, đặc biệt ở giai đoạn ra hoa, nuôi quả. Tưới nước thường xuyên nhưng tránh ngập úng. Nên tỉa bỏ lá già, lá bệnh để tăng ánh sáng và hạn chế sâu bệnh.",
+  "diseases": "Mướp thường bị bệnh phấn trắng, sương mai, thán thư, héo rũ, và bị hại bởi bọ trĩ, rệp, sâu xanh. Biện pháp phòng trừ: chọn giống kháng bệnh, vệ sinh đồng ruộng, luân canh cây trồng, sử dụng chế phẩm sinh học (trichoderma, nấm xanh, nấm trắng) và phun thuốc BVTV khi cần thiết.",
+  "nutrition": "Mướp chứa nhiều nước, chất xơ, vitamin C, vitamin B6, sắt, magie và kẽm. Mướp có tác dụng thanh nhiệt, giải độc, tốt cho tiêu hóa, tim mạch và hỗ trợ làm đẹp da.",
+  "economic_value": "Mướp là loại rau quả phổ biến, có giá trị kinh tế ổn định. Quả mướp non dùng làm thực phẩm, quả già dùng để lấy xơ sản xuất mướp xơ (làm tắm, rửa bát). Nghệ An là nơi trồng nhiều mướp trong vườn hộ gia đình và sản xuất hàng hóa nhỏ lẻ.",
+  "source": "Wikipedia; PlantVillage; FAO; Cục Trồng trọt - Bộ NN&PTNT"
+}

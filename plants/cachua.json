@@ -1,0 +1,18 @@
+{
+  "name": "Cà chua",
+  "scientific_name": "Solanum lycopersicum",
+  "img": "images/cachua.jpg",
+  "origin": "Cà chua có nguồn gốc từ khu vực Nam Mỹ, sau đó được du nhập vào châu Âu và lan rộng khắp thế giới. Ở Việt Nam, cà chua là loại rau quả phổ biến, trồng nhiều từ đồng bằng đến vùng núi, trong đó có Nghệ An với nhiều diện tích trồng ở vụ đông.",
+  "conditions": {
+    "temperature": "18 - 28°C",
+    "humidity": "60 - 75%",
+    "ph": "5.5 - 6.8",
+    "light": "Cần ánh sáng đầy đủ, 6 - 8 giờ/ngày",
+    "soil": "Đất tơi xốp, giàu mùn, thoát nước tốt"
+  },
+  "care": "Cà chua thường được gieo hạt trong bầu ươm, sau 25 - 30 ngày thì đem trồng ra ruộng. Khoảng cách trồng 50 x 60 cm. Cần làm giàn cho cây phát triển, buộc thân chính vào cọc để tránh đổ ngã. Bón lót bằng phân hữu cơ hoai mục và phân lân, sau đó bón thúc NPK nhiều lần, chú trọng kali giai đoạn ra hoa và nuôi quả. Tưới nước đều, tránh để đất quá khô hoặc ngập úng. Tỉa bỏ lá già, chồi nách để tập trung dinh dưỡng cho quả.",
+  "diseases": "Cà chua thường bị bệnh mốc sương, héo rũ vi khuẩn, xoăn lá vàng, phấn trắng, và bị sâu xanh, sâu khoang, rệp muội tấn công. Biện pháp phòng trừ: luân canh cây trồng, sử dụng giống kháng bệnh, làm đất kỹ, tưới tiêu hợp lý, phun chế phẩm sinh học (nấm Trichoderma, dầu neem) hoặc thuốc BVTV theo hướng dẫn khi cần.",
+  "nutrition": "Cà chua giàu vitamin C, vitamin A, vitamin K, kali, chất xơ và chất chống oxy hóa mạnh là lycopene – hợp chất giúp giảm nguy cơ ung thư và bệnh tim mạch. Cà chua cũng giúp làm đẹp da, hỗ trợ tiêu hóa và tăng cường miễn dịch.",
+  "economic_value": "Cà chua là loại rau quả có giá trị kinh tế cao, được tiêu thụ hàng ngày trong bữa ăn và làm nguyên liệu chế biến công nghiệp (tương cà, nước ép, bột cà chua). Nghệ An có lợi thế trồng cà chua vụ đông, mang lại thu nhập tốt cho nông dân.",
+  "source": "Wikipedia; PlantVillage; FAO; Cục Trồng trọt - Bộ NN&PTNT"
+}

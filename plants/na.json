@@ -1,0 +1,18 @@
+{
+  "name": "Na (Mãng cầu ta)",
+  "scientific_name": "Annona squamosa",
+  "img": "images/na.jpg",
+  "origin": "Cây na có nguồn gốc từ vùng nhiệt đới châu Mỹ, được du nhập vào châu Á từ rất sớm và hiện được trồng rộng rãi ở nhiều quốc gia. Ở Việt Nam, na được trồng nhiều tại các tỉnh trung du và miền núi, trong đó Nghệ An có diện tích lớn, đặc biệt tại các huyện miền Tây, nơi đất đồi thoát nước tốt.",
+  "conditions": {
+    "temperature": "25 - 35°C",
+    "humidity": "60 - 80%",
+    "ph": "5.5 - 6.5",
+    "light": "Ưa sáng, cần nắng trực tiếp",
+    "soil": "Đất cát pha hoặc đất thịt nhẹ, thoát nước tốt"
+  },
+  "care": "Na được nhân giống bằng hạt, chiết cành hoặc ghép. Trồng vào đầu mùa mưa để cây bén rễ nhanh. Khoảng cách trồng 3 x 3 m hoặc 4 x 4 m. Cần làm bồn quanh gốc, phủ rơm rạ để giữ ẩm. Bón phân hữu cơ kết hợp NPK định kỳ theo từng giai đoạn: sau khi ra hoa, khi đậu quả và nuôi quả. Tỉa cành tạo tán hợp lý để cây nhận đủ ánh sáng và hạn chế sâu bệnh. Na cần nước vừa phải, không chịu ngập úng; vào mùa khô cần tưới bổ sung.",
+  "diseases": "Na thường bị bệnh thán thư, rệp sáp, sâu đục quả, ruồi đục quả. Biện pháp phòng trừ: vệ sinh vườn thường xuyên, bao quả bằng túi giấy hoặc nilon mỏng, phun chế phẩm sinh học (nấm xanh, nấm trắng, dầu neem) hoặc thuốc BVTV theo hướng dẫn khi mật độ sâu bệnh cao.",
+  "nutrition": "Quả na giàu đường, vitamin C, vitamin nhóm B (B1, B6), khoáng chất như kali, magie, đồng. Na có tác dụng tăng cường sức đề kháng, hỗ trợ tiêu hóa, tốt cho tim mạch và hệ thần kinh.",
+  "economic_value": "Na là loại cây ăn quả có giá trị kinh tế cao, quả dễ tiêu thụ trên thị trường trong nước và có tiềm năng xuất khẩu. Nghệ An với đặc sản na quả to, ngọt đậm, là nguồn thu nhập quan trọng cho nhiều hộ nông dân.",
+  "source": "Wikipedia; FAO; PlantVillage; Cục Trồng trọt - Bộ NN&PTNT"
+}
