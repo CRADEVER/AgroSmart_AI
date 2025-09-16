@@ -2,71 +2,69 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CR - AgroSmart AI</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <!-- Navbar -->
+  <!-- Video Background -->
+  <div class="video-container">
+    <video id="bg-video" autoplay muted loop></video>
+    <div class="overlay"></div>
+    <button class="video-btn left" onclick="prevVideo()">❮</button>
+    <button class="video-btn right" onclick="nextVideo()">❯</button>
+  </div>
+
+  <!-- Header -->
   <header>
-    <div class="logo" onclick="scrollToSection('home')">
-      <img src="images/logo1.png" alt="Logo">
-      <span>CR - AgroSmart AI</span>
+    <div class="logo" onclick="location.href='index.html'">
+      <img src="images/logo1.png" alt="Logo" class="logo-img">
+      CR - AgroSmart AI
     </div>
     <nav>
-      <a href="#home">Trang chủ</a>
-      <a href="#plants">Thư viện</a>
+      <a href="#hero">Trang chủ</a>
       <a href="#intro">Giới thiệu</a>
-      <a href="#chatbot">AI Chatbot</a>
+      <a href="#plants">Thư viện</a>
+      <a href="#ai">AI Chatbot</a>
     </nav>
+    <input type="text" id="search-box" placeholder="🔍 Tìm cây...">
     <button id="dark-toggle">🌙</button>
   </header>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <div class="video-container">
-      <video id="bg-video" autoplay muted loop></video>
-      <button class="nav-btn left" onclick="prevVideo()">❮</button>
-      <button class="nav-btn right" onclick="nextVideo()">❯</button>
-    </div>
-    <div class="hero-content">
-      <h1>Hệ thống cây trồng <span>thông minh</span></h1>
-      <p>Ứng dụng trí tuệ nhân tạo trong chẩn đoán bệnh cây trồng qua hình ảnh và xây dựng thư viện hỗ trợ nông nghiệp số (AgroSmart AI)</p>
-      <button class="cta-btn" onclick="scrollToSection('plants')">Khám phá ngay</button>
-    </div>
-  </section>
-
-  <!-- Plant Library -->
-  <section id="plants" class="plants">
-    <h2>🌱 Thư viện cây trồng</h2>
-    <input type="text" id="searchInput" placeholder="🔍 Tìm kiếm cây trồng...">
-    <div class="plant-grid" id="plantGrid"></div>
-    <div class="plant-info hidden" id="plantInfo">
-      <h2 id="plantName"></h2>
-      <img id="plantImg" alt="Plant">
-      <p id="plantDesc"></p>
-      <canvas id="plantChart"></canvas>
-      <p id="plantSource" class="source"></p>
-    </div>
+  <!-- Hero -->
+  <section id="hero" class="hero">
+    <h1>Ứng dụng trí tuệ nhân tạo trong chẩn đoán bệnh cây trồng qua hình ảnh và xây dựng thư viện hỗ trợ nông nghiệp số <span class="highlight">(AgroSmart AI)</span></h1>
   </section>
 
   <!-- Intro -->
   <section id="intro" class="intro">
-    <h2>ℹ️ Giới thiệu</h2>
-    <p>
-      AgroSmart AI là dự án ứng dụng trí tuệ nhân tạo trong chẩn đoán bệnh cây trồng
-      qua hình ảnh, đồng thời xây dựng thư viện dữ liệu hỗ trợ nông nghiệp số nhằm
-      giúp nông dân tiếp cận công nghệ mới dễ dàng hơn.
-    </p>
+    <h2>Giới thiệu</h2>
+    <p>AgroSmart AI là hệ thống tích hợp thư viện số cây trồng và trí tuệ nhân tạo giúp nhận diện bệnh cây qua hình ảnh, hỗ trợ nông dân và học sinh trong nông nghiệp thông minh.</p>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 CR - AgroSmart AI | Nền tảng AI hỗ trợ nông nghiệp</p>
-  </footer>
+  <!-- Plant List -->
+  <section id="plants" class="plants">
+    <h2>🌾 Thư viện cây trồng</h2>
+    <div id="plant-list" class="plant-grid"></div>
+  </section>
 
-  <script src="data.js"></script>
+  <!-- Popup plant info -->
+  <div id="plant-popup" class="popup hidden">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <h2 id="plant-name"></h2>
+      <canvas id="plant-chart" width="400" height="200"></canvas>
+      <div id="plant-details"></div>
+      <p class="source" id="plant-source"></p>
+    </div>
+  </div>
+
+  <!-- AI Section -->
+  <section id="ai" class="ai">
+    <h2>🤖 AI Chatbot</h2>
+    <p>(Chức năng đang phát triển...)</p>
+  </section>
+
   <script src="script.js"></script>
 </body>
 </html>
