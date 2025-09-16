@@ -1,71 +1,76 @@
-// Dark mode
-const darkToggle = document.getElementById("dark-toggle");
-darkToggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-});
+const plantList = document.getElementById("plant-list");
+const searchBox = document.getElementById("search-box");
+const popup = document.getElementById("plant-popup");
+const plantName = document.getElementById("plant-name");
+const plantDetails = document.getElementById("plant-details");
+const plantSource = document.getElementById("plant-source");
+const ctx = document.getElementById("plant-chart").getContext("2d");
 
-// Scroll to section
-function scrollToSection(id) {
-  document.getElementById(id).scrollIntoView({ behavior: "smooth" });
-}
+let chart;
 
-// Load plants
+// Danh sách JSON các cây
+const plants = [
+  "lua", "ngo", "cam", "cachua", "mia", "che", "lac", "khoai", "chuoi", "xoai"
+];
+
+// Load danh sách cây
 async function loadPlants() {
-  const response = await fetch("plants.json");
-  const plants = await response.json();
-
-  const plantList = document.getElementById("plant-list");
-  const search = document.getElementById("search");
-
-  function render(filter = "") {
-    plantList.innerHTML = "";
-    plants
-      .filter(p => p.name.toLowerCase().includes(filter.toLowerCase()))
-      .forEach(p => {
-        const card = document.createElement("div");
-        card.className = "plant-card";
-        card.innerHTML = `<img src="${p.img}" alt="${p.name}"><h3>${p.name}</h3>`;
-        card.onclick = () => openModal(p);
-        plantList.appendChild(card);
-      });
+  plantList.innerHTML = "";
+  for (let p of plants) {
+    const data = await fetch(`plants/${p}.json`).then(r => r.json());
+    const card = document.createElement("div");
+    card.className = "plant-card";
+    card.innerHTML = `
+      <img src="${data.img}" alt="${data.name}">
+      <h3>${data.name}</h3>
+    `;
+    card.onclick = () => showPlant(data);
+    plantList.appendChild(card);
   }
-
-  search.addEventListener("input", e => render(e.target.value));
-  render();
 }
-loadPlants();
 
-// Modal
-function openModal(plant) {
-  const modal = document.getElementById("plant-modal");
-  modal.classList.remove("hidden");
-  document.getElementById("modal-name").textContent = plant.name;
-  document.getElementById("modal-img").src = plant.img;
-  document.getElementById("plant-details").innerHTML = `
-    <p><b>Nguồn gốc:</b> ${plant.origin}</p>
-    <p><b>Lợi ích dinh dưỡng:</b> ${plant.nutrition}</p>
-    <p><b>Cách chăm sóc:</b> ${plant.care}</p>
-    <p><i>${plant.source}</i></p>
+// Hiển thị chi tiết trong popup
+function showPlant(data) {
+  popup.classList.remove("hidden");
+  plantName.textContent = data.name;
+  plantDetails.innerHTML = `
+    <p><b>Nguồn gốc:</b> ${data.origin}</p>
+    <p><b>Lợi ích dinh dưỡng:</b> ${data.nutrition}</p>
+    <p><b>Cách chăm sóc:</b> ${data.care}</p>
   `;
-  const ctx = document.getElementById("plant-chart").getContext("2d");
-  new Chart(ctx, {
+  plantSource.textContent = `Nguồn: ${data.source}`;
+
+  if (chart) chart.destroy();
+  chart = new Chart(ctx, {
     type: "bar",
     data: {
       labels: ["Nhiệt độ (°C)", "Độ ẩm (%)", "pH đất", "Ánh sáng (giờ)"],
       datasets: [{
         label: "Yêu cầu sinh trưởng",
-        data: [
-          plant.conditions.temperature,
-          plant.conditions.humidity,
-          plant.conditions.ph,
-          plant.conditions.light
-        ],
-        backgroundColor: ["#4caf50","#2196f3","#ff9800","#9c27b0"]
+        data: [data.temp, data.humidity, data.pH, data.light],
+        backgroundColor: ["#66bb6a", "#ffee58", "#42a5f5", "#ff7043"]
       }]
-    },
-    options: { responsive: true, scales: { y: { beginAtZero: true } } }
+    }
   });
 }
-function closeModal() {
-  document.getElementById("plant-modal").classList.add("hidden");
+
+function closePopup() {
+  popup.classList.add("hidden");
 }
+
+// Dark mode
+document.getElementById("dark-toggle").onclick = () => {
+  document.body.classList.toggle("dark");
+};
+
+// Search
+searchBox.addEventListener("input", () => {
+  const val = searchBox.value.toLowerCase();
+  document.querySelectorAll(".plant-card").forEach(card => {
+    const name = card.querySelector("h3").textContent.toLowerCase();
+    card.style.display = name.includes(val) ? "block" : "none";
+  });
+});
+
+// Gọi load
+loadPlants();
