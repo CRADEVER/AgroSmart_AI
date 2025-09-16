@@ -1,100 +1,184 @@
-// Unsplash helper
-function unsplashUrl(query,w=900,h=600){
-  return `https://source.unsplash.com/${w}x${h}/?${encodeURIComponent(query)}`;
-}
+document.addEventListener('DOMContentLoaded', () => {
+  // Background video
+  const video = document.getElementById('bgVideo');
+  const videos = [
+    'video1.mp4',
+    'video2.mp4',
+    'video3.mp4'
+  ];
+  let vidIndex = 0;
+  if(video) {
+    video.src = videos[0];
+    setInterval(() => {
+      vidIndex = (vidIndex + 1) % videos.length;
+      video.src = videos[vidIndex];
+      video.play();
+    }, 10000);
+  }
 
-// Render plant cards
-function createCard(p){
-  const card=document.createElement("div");
-  card.className="plant-card";
-  const img=document.createElement("img");
-  img.dataset.src=unsplashUrl(p.imgQuery);
-  img.alt=p.name;
-  img.loading="lazy";
-  img.onerror=()=>img.src="https://via.placeholder.com/600x400?text=No+Image";
-  card.appendChild(img);
-  const body=document.createElement("div");
-  body.innerHTML=`<h3>${p.name}</h3>`;
-  card.appendChild(body);
-  card.addEventListener("click",()=>openModal(p));
-  return card;
-}
-
-function lazyLoadImages(){
-  document.querySelectorAll("img[data-src]").forEach(img=>{
-    if(!img.src){
-      const tmp=new Image();
-      tmp.onload=()=>img.src=tmp.src;
-      tmp.onerror=()=>img.src="https://via.placeholder.com/600x400?text=No+Image";
-      tmp.src=img.dataset.src;
-      delete img.dataset.src;
+  // Dark mode toggle
+  const toggle = document.getElementById('darkModeToggle');
+  const currentMode = localStorage.getItem('darkMode');
+  if (currentMode === 'enabled') {
+    document.body.classList.add('dark-mode');
+  }
+  toggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    if (document.body.classList.contains('dark-mode')) {
+      localStorage.setItem('darkMode', 'enabled');
+    } else {
+      localStorage.setItem('darkMode', 'disabled');
     }
   });
-}
 
-function renderGrid(list){
-  plantGrid.innerHTML="";
-  list.forEach(p=>plantGrid.appendChild(createCard(p)));
-  lazyLoadImages();
-}
+  // Combine plant data
+  const plantData = [...data1, ...data2, ...data3];
 
-// Modal
-function openModal(p){
-  modal.classList.remove("hidden");
-  document.body.style.overflow="hidden";
-  document.getElementById("modalTitle").innerText=`${p.name} (${p.scientific})`;
-  document.getElementById("plantImg").src=unsplashUrl(p.imgQuery,800,500);
-  document.getElementById("plantDesc").innerText=p.origin;
-
-  document.getElementById("plantExtra").innerHTML=`
-    <table class="info-table">
-      <tr><td>🌍 Vùng trồng</td><td>${(p.regions||[]).join(", ")}</td></tr>
-      <tr><td>🌱 Thời vụ</td><td>${p.planting?.season||"Nhiều vụ"}</td></tr>
-      <tr><td>⏳ Thu hoạch</td><td>${p.harvest||"n/a"}</td></tr>
-      <tr><td>📊 Năng suất</td><td>${p.yieldAvg||"n/a"}</td></tr>
-    </table>
-  `;
-
-  document.getElementById("plantSource").innerText=`Nguồn: ${(p.sources||[]).join(" • ")}`;
-
-  const ctx=document.getElementById("plantChart").getContext("2d");
-  if(window._chart) window._chart.destroy();
-  window._chart=new Chart(ctx,{
-    type:"bar",
-    data:{
-      labels:["Nhiệt độ (°C)","Độ ẩm (%)","Ánh sáng (h)","pH"],
-      datasets:[{label:p.name,data:[p.chart.temp,p.chart.humidity,p.chart.light,p.chart.pH],
-        backgroundColor:["#FFB74D","#81C784","#64B5F6","#E57373"]}]
-    },
-    options:{responsive:true,scales:{y:{beginAtZero:true}}}
+  // Render plant cards
+  const grid = document.getElementById('plantGrid');
+  plantData.forEach((plant, index) => {
+    const card = document.createElement('div');
+    card.className = 'plant-card';
+    card.innerHTML = `
+      <img src="https://source.unsplash.com/featured/?${plant.imgQuery}" alt="${plant.name}" loading="lazy">
+      <h3>${plant.name}</h3>
+      <p><em>${plant.scientific}</em></p>
+    `;
+    card.addEventListener('click', () => openModal(index));
+    grid.appendChild(card);
   });
 
-  document.getElementById("nutriBox").innerHTML=`
-    <h4>Yêu cầu dinh dưỡng (kg/ha)</h4>
-    <table class="info-table">
-      <tr><td>N</td><td>${p.nutrition.N||0}</td></tr>
-      <tr><td>P</td><td>${p.nutrition.P||0}</td></tr>
-      <tr><td>K</td><td>${p.nutrition.K||0}</td></tr>
-      ${p.nutrition.Ca?`<tr><td>Ca</td><td>${p.nutrition.Ca}</td></tr>`:""}
-      ${p.nutrition.Mg?`<tr><td>Mg</td><td>${p.nutrition.Mg}</td></tr>`:""}
-    </table>
-  `;
-}
+  // Search functionality
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', () => {
+    const filter = searchInput.value.toLowerCase();
+    document.querySelectorAll('.plant-card').forEach((card, idx) => {
+      const name = plantData[idx].name.toLowerCase();
+      card.style.display = name.includes(filter) ? 'block' : 'none';
+    });
+  });
 
-function closeModal(){
-  modal.classList.add("hidden");
-  document.body.style.overflow="auto";
-}
+  // Modal dialog for details
+  const modal = document.getElementById('detailModal');
+  const closeBtn = document.querySelector('.modal .close');
+  closeBtn.addEventListener('click', () => modal.style.display = 'none');
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
 
-// Search
-searchInput.addEventListener("input",e=>{
-  const q=e.target.value.toLowerCase();
-  const filtered=plants.filter(p=>p.name.toLowerCase().includes(q));
-  renderGrid(filtered);
+  // Chart variables
+  let condChart = null;
+  let nutChart = null;
+
+  // Function to open and populate modal
+  function openModal(index) {
+    const plant = plantData[index];
+    document.getElementById('modalName').innerText = plant.name;
+    document.getElementById('modalSciName').innerText = plant.scientific;
+    document.getElementById('modalImg').src = `https://source.unsplash.com/featured/?${plant.imgQuery}`;
+    document.getElementById('modalOrigin').innerText = plant.origin;
+    document.getElementById('modalRegion').innerText = plant.region;
+    document.getElementById('modalMainNutrients').innerText = plant.mainNutrients;
+    document.getElementById('modalYield').innerText = plant.yield;
+    document.getElementById('modalSeason').innerText = plant.season;
+    document.getElementById('modalCare').innerText = plant.care;
+    document.getElementById('modalSource').innerText = plant.source;
+
+    // Conditions chart
+    const ctx1 = document.getElementById('chartConditions').getContext('2d');
+    if (condChart) { condChart.destroy(); }
+    condChart = new Chart(ctx1, {
+      type: 'bar',
+      data: {
+        labels: ['Nhiệt độ (°C)','Độ ẩm (%)','Độ sáng','Độ pH'],
+        datasets: [{
+          label: 'Điều kiện sinh trưởng',
+          data: [
+            plant.conditions.temperature,
+            plant.conditions.humidity,
+            plant.conditions.light,
+            plant.conditions.ph
+          ],
+          backgroundColor: ['#e76f51','#e76f51','#e76f51','#e76f51']
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    // Nutrients chart
+    const ctx2 = document.getElementById('chartNutrients').getContext('2d');
+    if (nutChart) { nutChart.destroy(); }
+    nutChart = new Chart(ctx2, {
+      type: 'bar',
+      data: {
+        labels: ['Đạm (N)','Lân (P)','Kali (K)'],
+        datasets: [{
+          label: 'Nhu cầu dưỡng chất',
+          data: [
+            plant.nutrients.N,
+            plant.nutrients.P,
+            plant.nutrients.K
+          ],
+          backgroundColor: ['#2a9d8f','#2a9d8f','#2a9d8f']
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    modal.style.display = 'flex';
+  }
+
+  // Chatbot toggle
+  const chatToggle = document.getElementById('chatToggle');
+  const chatWindow = document.getElementById('chatWindow');
+  const closeChat = document.querySelector('.closeChat');
+  const chatBody = document.getElementById('chatBody');
+  const chatInput = document.getElementById('chatInput');
+  const sendChat = document.getElementById('sendChat');
+
+  chatToggle.addEventListener('click', () => {
+    chatWindow.classList.toggle('open');
+  });
+  closeChat.addEventListener('click', () => {
+    chatWindow.classList.remove('open');
+  });
+
+  sendChat.addEventListener('click', () => {
+    const msg = chatInput.value.trim();
+    if (!msg) return;
+    const userMsg = document.createElement('div');
+    userMsg.className = 'chat-message user';
+    userMsg.innerHTML = `<strong>Tôi:</strong> ${msg}`;
+    chatBody.appendChild(userMsg);
+    chatInput.value = '';
+    chatBody.scrollTop = chatBody.scrollHeight;
+    // Simulate AI response
+    setTimeout(() => {
+      const botMsg = document.createElement('div');
+      botMsg.className = 'chat-message bot';
+      let response = '';
+      if (msg.toLowerCase().includes('xin chào') || msg.toLowerCase().includes('hello')) {
+        response = 'Xin chào! Tôi có thể giúp gì cho bạn?';
+      } else {
+        response = 'Xin lỗi, tôi chưa đủ thông minh để trả lời.';
+      }
+      botMsg.innerHTML = `<strong>AI:</strong> ${response}`;
+      chatBody.appendChild(botMsg);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }, 500);
+  });
 });
-
-// Dark mode
-document.getElementById("dark-toggle").onclick=()=>document.body.classList.toggle("dark");
-
-// Init
-renderGrid(plants);
