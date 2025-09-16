@@ -2,31 +2,75 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Chi tiết Cây Trồng</title>
+  <title>CR - AgroSmart AI</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <!-- Popup hiển thị chi tiết cây trồng -->
-  <div id="popup" class="popup">
-    <h2>Chi tiết Cây Trồng</h2>
-    <!-- Nút Toàn màn -->
-    <button id="toggleFullscreenBtn" class="btn-fullscreen" title="Toàn màn">🔳 Toàn màn</button>
-    <!-- Nội dung ví dụ dài để kiểm tra scroll -->
-    <p>Nội dung chi tiết về cây trồng. Nội dung này rất dài để kiểm tra tính năng cuộn. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae semper justo. Curabitur auctor tortor quis dictum cursus. Suspendisse potenti. Proin ac odio nec neque commodo hendrerit. Maecenas ultricies sem quis turpis ultrices, vel viverra dui scelerisque. Donec quis dui vitae lorem aliquet aliquet. Praesent nec sagittis justo. Integer tincidunt ante in leo pulvinar, non lacinia lectus egestas. Sed eget tellus vel dui hendrerit laoreet eu sit amet purus.</p>
-    <p>Còn rất nhiều thông tin khác... (giả sử nhiều đoạn văn bản khác)</p>
-    <!-- Nút Đóng popup (nếu cần) -->
-    <button id="closePopupBtn">Đóng</button>
+  <!-- Video Background -->
+  <div class="video-container">
+    <video id="bg-video" autoplay muted loop>
+      <source src="videos/nen1.mp4" type="video/mp4">
+      Trình duyệt của bạn không hỗ trợ video. <a href="videos/nen1.mp4">Click vào đây</a> để xem video.
+    </video>
+    <div class="overlay"></div>
+    <button class="video-btn left" onclick="prevVideo()">❮</button>
+    <button class="video-btn right" onclick="nextVideo()">❯</button>
   </div>
 
-  <!-- Video nền và nút điều khiển -->
-  <div class="video-container">
-    <!-- Nút chuyển video trước -->
-    <button id="prevVideoBtn" onclick="prevVideo()">❮</button>
-    <!-- Video nền -->
-    <video id="backgroundVideo" src="videos/video1.mp4" autoplay muted loop></video>
-    <!-- Nút chuyển video kế tiếp -->
-    <button id="nextVideoBtn" onclick="nextVideo()">❯</button>
+  <!-- Header -->
+  <header>
+    <div class="logo" onclick="location.href='index.html'">
+      <img src="images/logo1.png" alt="Logo" class="logo-img">
+      CR - AgroSmart AI
+    </div>
+    <nav>
+      <a href="#hero">Trang chủ</a>
+      <a href="#intro">Giới thiệu</a>
+      <a href="#plants">Thư viện</a>
+      <a href="#ai">AI Chatbot</a>
+    </nav>
+    <input type="text" id="search-box" placeholder="🔍 Tìm cây...">
+    <button id="dark-toggle">🌙</button>
+  </header>
+
+  <!-- Hero -->
+  <section id="hero" class="hero">
+    <h1>Ứng dụng trí tuệ nhân tạo trong chẩn đoán bệnh cây trồng qua hình ảnh và
+ xây dựng thư viện hỗ trợ nông nghiệp số <span class="highlight">(AgroSmart 
+AI)</span></h1>
+  </section>
+
+  <!-- Intro -->
+  <section id="intro" class="intro">
+    <h2>Giới thiệu</h2>
+    <p>AgroSmart AI là hệ thống tích hợp thư viện số cây trồng và trí tuệ nhân 
+ tạo giúp nhận diện bệnh cây qua hình ảnh, hỗ trợ nông dân và học sinh trong nông
+ nghiệp thông minh.</p>
+  </section>
+
+  <!-- Plant List -->
+  <section id="plants" class="plants">
+    <h2>🌾 Thư viện cây trồng</h2>
+    <div id="plant-list" class="plant-grid"></div>
+  </section>
+
+  <!-- Popup plant info -->
+  <div id="plant-popup" class="popup hidden">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <h2 id="plant-name"></h2>
+      <canvas id="plant-chart" width="400" height="200"></canvas>
+      <div id="plant-details"></div>
+      <p class="source" id="plant-source"></p>
+    </div>
   </div>
+
+  <!-- AI Section -->
+  <section id="ai" class="ai">
+    <h2>🤖 AI Chatbot</h2>
+    <p>(Chức năng đang phát triển...)</p>
+  </section>
 
   <script src="script.js"></script>
 </body>
