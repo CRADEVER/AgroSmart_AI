@@ -1,278 +1,215 @@
-/* Root colors and fonts */
-:root {
-  --primary: #2a9d8f;
-  --secondary: #e9c46a;
-  --bg-light: #f5f5f5;
-  --bg-dark: #121212;
-  --text-light: #333333;
-  --text-dark: #f5f5f5;
-  --transition: 0.3s;
-}
+/* Nhập font chữ Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+/* Cơ bản cho body */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: var(--bg-light);
-  color: var(--text-light);
-  transition: background-color var(--transition), color var(--transition);
-}
-body.dark-mode {
-  background-color: var(--bg-dark);
-  color: var(--text-dark);
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  background-color: #fefefe;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-/* Navigation */
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
+/* Chế độ tối */
+body.dark-mode {
+  background-color: #121212;
+  color: #eee;
+}
+
+/* Thanh điều hướng */
+#navbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background-color: rgba(255,255,255,0.8);
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
-  padding: 0.5rem 1rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
   z-index: 100;
 }
-body.dark-mode nav {
-  background-color: rgba(0,0,0,0.8);
+body.dark-mode #navbar {
+  background: rgba(0, 0, 0, 0.5);
 }
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--primary);
+#navbar .logo {
+  height: 40px;
+  margin-right: 10px;
 }
-body.dark-mode .logo {
-  color: var(--secondary);
+#navbar h1 {
+  flex: 1;
+  font-size: 24px;
+  margin: 0;
 }
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-}
-.nav-links li {
-  list-style: none;
-}
-.nav-links a,
-.nav-links button {
-  text-decoration: none;
-  color: var(--text-light);
+#themeToggle {
   background: none;
   border: none;
-  font-size: 1rem;
+  font-size: 24px;
   cursor: pointer;
-  transition: color var(--transition);
+  transition: color 0.3s;
 }
-.nav-links a:hover,
-.nav-links button:hover {
-  color: var(--primary);
-}
-body.dark-mode .nav-links a,
-body.dark-mode .nav-links button {
-  color: var(--text-dark);
+#themeToggle:hover {
+  color: #ff9900;
 }
 
-/* Video background */
-.video-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+/* Video nền toàn màn hình */
+#video-container {
+  position: relative;
+  height: 100vh;
   overflow: hidden;
-  z-index: -1;
 }
-#bgVideo {
+#video-container video {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+.video-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.5);
+  border: none;
+  font-size: 30px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.video-btn:hover {
+  background: rgba(255,255,255,0.8);
+}
+#prev { left: 10px; }
+#next { right: 10px; }
+#exploreBtn {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ff5722;
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+#exploreBtn:hover {
+  background: #e64a19;
+}
 
-/* Sections */
-section {
-  padding: 6rem 2rem 2rem 2rem;
-}
-#intro {
-  margin-top: 60px;
-}
-#intro h1 {
-  color: var(--primary);
-}
-#intro p {
-  line-height: 1.6;
-  margin: 1rem 0;
+/* Section thư viện */
+#gallery {
+  padding: 120px 20px 40px; /* tạo khoảng trống cho navbar */
+  text-align: center;
 }
 #gallery h2 {
-  color: var(--primary);
+  font-size: 28px;
+  margin-bottom: 20px;
 }
 #searchInput {
-  width: 100%;
-  max-width: 300px;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
+  padding: 10px;
+  width: 60%;
+  max-width: 400px;
+  font-size: 16px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+#searchInput:focus {
+  outline-color: #ff5722;
+}
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
-/* Plant grid */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1rem;
-}
-.plant-card {
-  background-color: #ffffff;
-  color: #000000;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+/* Thẻ cây trồng */
+.card {
+  width: 200px;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255,255,255,0.7);
+  border-radius: 10px;
+  padding: 10px;
   cursor: pointer;
-  transition: transform var(--transition), box-shadow var(--transition);
+  transition: transform 0.2s, background 0.3s;
 }
-body.dark-mode .plant-card {
-  background-color: #333333;
-  color: #ffffff;
-  box-shadow: 0 2px 5px rgba(255,255,255,0.1);
+body.dark-mode .card {
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.2);
 }
-.plant-card img {
+.card:hover {
+  transform: translateY(-5px);
+  background: rgba(255,255,255,0.8);
+}
+.card img {
   width: 100%;
-  height: 150px;
-  object-fit: cover;
+  border-radius: 5px;
 }
-.plant-card h3 {
-  margin: 0.5rem;
-  font-size: 1.1rem;
+.card h3 {
+  margin: 10px 0 5px;
+  font-size: 18px;
 }
-.plant-card p {
-  margin: 0.5rem;
-  font-size: 0.9rem;
-  color: #666;
+.card p {
+  margin: 0;
+  color: #555;
+  font-size: 14px;
 }
-body.dark-mode .plant-card p {
-  color: #ddd;
-}
-.plant-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+body.dark-mode .card p {
+  color: #ccc;
 }
 
-/* Modal */
+/* Modal (cả chi tiết cây và chatbot) */
 .modal {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.8);
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
   z-index: 200;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
 }
 .modal-content {
-  background-color: #ffffff;
-  padding: 2rem;
-  border-radius: 8px;
-  max-width: 600px;
-  width: 100%;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(10px);
+  margin: 100px auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 700px;
+  color: #333;
   position: relative;
 }
 body.dark-mode .modal-content {
-  background-color: #222222;
-  color: #ffffff;
+  background: rgba(0,0,0,0.7);
+  color: #eee;
 }
-.modal .close {
+.close {
   position: absolute;
-  top: 10px;
-  right: 20px;
-  font-size: 1.5rem;
+  top: 10px; right: 20px;
+  font-size: 28px;
   cursor: pointer;
-}
-.modal .charts {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.chart-container {
-  position: relative;
-  height: 200px;
 }
 
-/* Chatbot */
-.chat-btn {
+/* Biểu đồ conditions và nutrients */
+canvas {
+  max-width: 100%;
+  margin: 20px 0;
+}
+
+/* Nút Chatbot */
+.chatbot-btn {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: var(--primary);
-  color: #ffffff;
+  bottom: 20px; right: 20px;
+  background: #ff5722;
+  color: white;
   border: none;
-  padding: 0.6rem 1rem;
-  border-radius: 50px;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 18px;
   cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  transition: background-color var(--transition);
-  z-index: 100;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
-.chat-btn:hover {
-  background-color: var(--secondary);
-}
-#chatWindow {
-  display: none;
-  position: fixed;
-  bottom: 70px;
-  right: 20px;
-  width: 300px;
-  background-color: #ffffff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  overflow: hidden;
-  z-index: 100;
-}
-.chat-window.open {
-  display: block;
-}
-#chatHeader {
-  background-color: var(--primary);
-  color: #ffffff;
-  padding: 0.5rem;
-  font-weight: bold;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-#chatHeader .closeChat {
-  cursor: pointer;
-  font-size: 1.2rem;
-}
-#chatBody {
-  max-height: 200px;
-  padding: 0.5rem;
-  overflow-y: auto;
-}
-.chat-message {
-  margin-bottom: 0.5rem;
-}
-.chat-message.user {
-  text-align: right;
-}
-.chat-message.bot {
-  text-align: left;
-}
-#chatInput {
-  width: calc(100% - 60px);
-  padding: 0.5rem;
-  border: none;
-  border-top: 1px solid #ccc;
-}
-#sendChat {
-  width: 60px;
-  border: none;
-  background-color: var(--primary);
-  color: #ffffff;
-  cursor: pointer;
-}
-#sendChat:hover {
-  background-color: var(--secondary);
+.chatbot-btn:hover {
+  background: #e64a19;
 }
