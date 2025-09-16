@@ -44,12 +44,19 @@ function showInfo(plant) {
   });
 }
 // Toggle Dark Mode
-document.getElementById("dark-toggle").addEventListener("click", () => {
+// Dark mode toggle
+const toggleBtn = document.getElementById("dark-toggle");
+
+// mặc định sáng
+document.body.classList.remove("dark");
+toggleBtn.innerText = "🌙"; // icon ban đầu
+
+toggleBtn.onclick = () => {
   document.body.classList.toggle("dark");
-  const btn = document.getElementById("dark-toggle");
   if (document.body.classList.contains("dark")) {
-    btn.textContent = "☀️ Light Mode";
+    toggleBtn.innerText = "☀️";
   } else {
-    btn.textContent = "🌙 Dark Mode";
+    toggleBtn.innerText = "🌙";
   }
-});
+};
+
