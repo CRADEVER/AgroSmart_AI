@@ -89,3 +89,6 @@ searchBox.addEventListener("input", () => {
 
 // Gọi load
 loadPlants();
+function toggleFullscreen() {
+  popup.classList.toggle("fullscreen");
+}
