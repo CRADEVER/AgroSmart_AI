@@ -138,6 +138,7 @@ body.dark .plant-card, body.dark .popup-content { background: #1e1e1e; color: #e
 
 
 /* Chế độ toàn màn hình cho popup */
+/* khi bật fullscreen */
 .popup.fullscreen {
   display: flex;
   align-items: stretch;
@@ -145,12 +146,13 @@ body.dark .plant-card, body.dark .popup-content { background: #1e1e1e; color: #e
 }
 
 .popup.fullscreen .popup-content {
-  width: 100%;
-  height: 100%;
+  width: 100vw;        /* chiếm full chiều rộng viewport */
+  height: 100vh;       /* chiếm full chiều cao viewport */
   max-width: none;
   max-height: none;
   border-radius: 0;
 }
+
 .fullscreen-btn {
   position: absolute;
   top: 10px;
