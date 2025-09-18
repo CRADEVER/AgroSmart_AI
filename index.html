@@ -56,19 +56,18 @@ AI)</span></h1>
   </section>
 
   <!-- Popup plant info -->
-  <!-- Popup plant info -->
-<div id="plant-popup" class="popup hidden">
-  <div class="popup-content">
-    <span class="close-btn" onclick="closePopup()">&times;</span>
-    <!-- nút full screen -->
-    <button class="fullscreen-btn" onclick="toggleFullscreen()">⛶</button>
-    <h2 id="plant-name"></h2>
-    <canvas id="plant-chart" width="400" height="200"></canvas>
-    <div id="plant-details"></div>
-    <p class="source" id="plant-source"></p>
+  <div id="plant-popup" class="popup hidden">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <!-- nút full screen -->
+      <button class="fullscreen-btn" onclick="toggleFullscreen()">⛶</button>
+      <h2 id="plant-name"></h2>
+      <img id="plant-image" alt="" style="width:100%;max-height:200px;object-fit:cover;border-radius:8px;margin-bottom:10px;">
+      <canvas id="plant-chart" width="400" height="200"></canvas>
+      <div id="plant-details"></div>
+      <p class="source" id="plant-source"></p>
+    </div>
   </div>
-</div>
-
 
   <!-- AI Section -->
   <section id="ai" class="ai">
