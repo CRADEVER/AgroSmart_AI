@@ -27,13 +27,13 @@ const plantList = document.getElementById("plant-list");
 const searchBox = document.getElementById("search-box");
 const popup = document.getElementById("plant-popup");
 const plantName = document.getElementById("plant-name");
-const plantImage = document.getElementById("plant-image");
 const plantDetails = document.getElementById("plant-details");
 const plantSource = document.getElementById("plant-source");
 const ctx = document.getElementById("plant-chart").getContext("2d");
 let chart;
 
-const plants = ["lua","ngo","cam","cachua","mia","che","lac","khoai","chuoi","xoai"];
+const plants =
+["lua","ngo","cam","cachua","mia","che","lac","khoai","chuoi","xoai"];
 
 async function loadPlants() {
   plantList.innerHTML = "";
@@ -41,7 +41,8 @@ async function loadPlants() {
     const data = await fetch(`plants/${p}.json`).then(r => r.json());
     const card = document.createElement("div");
     card.className = "plant-card";
-    card.innerHTML = `<img src="${data.img}" alt="${data.name}"><h3>${data.name}</h3>`;
+    card.innerHTML = `<img src="${data.img}" 
+alt="${data.name}"><h3>${data.name}</h3>`;
     card.onclick = () => showPlant(data);
     plantList.appendChild(card);
   }
@@ -50,8 +51,6 @@ async function loadPlants() {
 function showPlant(data) {
   popup.classList.remove("hidden");
   plantName.textContent = data.name;
-  plantImage.src = data.img;
-
   plantDetails.innerHTML = `
     <p><b>Nguồn gốc:</b> ${data.origin}</p>
     <p><b>Lợi ích dinh dưỡng:</b> ${data.nutrition}</p>
@@ -69,11 +68,6 @@ function showPlant(data) {
         data: [data.temp, data.humidity, data.pH, data.light],
         backgroundColor: ["#66bb6a","#ffee58","#42a5f5","#ff7043"]
       }]
-    },
-    options: {
-      scales: {
-        y: { beginAtZero: true }
-      }
     }
   });
 }
