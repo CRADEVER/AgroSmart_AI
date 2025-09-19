@@ -3,68 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thư viện cây trồng AI</title>
+  <title>Thư viện Cây trồng</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
-  <!-- HEADER -->
   <header class="header">
     <div class="container header-content">
       <div class="logo">
-        <div class="logo-icon"><i class="fas fa-seedling"></i></div>
-        <span class="logo-text">PlantAI</span>
+        <div class="logo-icon">🌱</div>
+        <div class="logo-text">Cây Trồng AI</div>
       </div>
       <nav class="desktop-nav nav">
         <a href="#library" class="nav-link">Thư viện</a>
-        <a href="#about" class="nav-link">Về chúng tôi</a>
+        <a href="#about" class="nav-link">Giới thiệu</a>
       </nav>
+      <div class="header-controls">
+        <div class="search-container desktop-search">
+          <input type="text" id="searchInput" class="search-input" placeholder="Tìm cây trồng...">
+        </div>
+        <button id="themeToggle" class="theme-toggle">🌙</button>
+      </div>
     </div>
   </header>
 
-  <!-- HERO SECTION -->
   <section class="hero">
     <div class="hero-content">
-      <h1 class="hero-title">Khám phá <span class="highlight">cây trồng</span> bằng AI</h1>
-      <p class="hero-description">Tải hình ảnh cây trồng, nhận dạng bệnh lý và truy cập thông tin chi tiết từ các nguồn uy tín.</p>
-      <div class="hero-buttons">
-        <a href="#library" class="btn btn-primary btn-lg">Vào thư viện</a>
-      </div>
+      <h1 class="hero-title">Khám phá <span class="highlight">Thế giới Cây trồng</span></h1>
+      <p class="hero-description">Tìm kiếm, học hỏi và quản lý thông tin các loại cây trồng một cách dễ dàng và trực quan.</p>
     </div>
   </section>
 
-  <!-- LIBRARY SECTION -->
   <section id="library" class="library">
-    <div class="container library-controls">
-      <div class="search-container">
-        <input type="text" id="searchInput" class="search-input" placeholder="Tìm cây trồng...">
-      </div>
-      <div class="filter-controls">
-        <select id="categoryFilter" class="category-select">
-          <option value="all">Tất cả danh mục</option>
-          <option value="grain">Ngũ cốc</option>
-          <option value="vegetable">Rau củ</option>
-          <option value="fruit">Trái cây</option>
-          <option value="legume">Đậu</option>
-          <option value="industrial">Công nghiệp</option>
-        </select>
-        <button id="gridViewBtn" class="view-btn active"><i class="fas fa-th"></i></button>
-        <button id="listViewBtn" class="view-btn"><i class="fas fa-list"></i></button>
+    <div class="library-controls container">
+      <input type="text" id="librarySearch" class="search-input" placeholder="Tìm cây trồng...">
+      <select id="categoryFilter" class="category-select">
+        <option value="all">Tất cả</option>
+        <option value="grain">Ngũ cốc</option>
+        <option value="vegetable">Rau</option>
+        <option value="fruit">Trái cây</option>
+        <option value="legume">Đậu</option>
+        <option value="industrial">Công nghiệp</option>
+      </select>
+      <div>
+        <button id="gridView" class="view-btn active">Grid</button>
+        <button id="listView" class="view-btn">List</button>
       </div>
     </div>
-    <div id="plantsGrid" class="plants-grid"></div>
+
+    <div id="plantsGrid" class="plants-grid container">
+      <!-- Cây trồng sẽ được render bằng JS -->
+    </div>
     <div class="load-more-container">
-      <button id="loadMoreBtn" class="btn btn-secondary">Tải thêm</button>
+      <button id="loadMoreBtn" class="btn btn-primary">Xem thêm</button>
     </div>
   </section>
 
-  <!-- ABOUT SECTION -->
   <section id="about" class="about">
-    <div class="container about-content">
-      <p class="about-description">PlantAI là nền tảng hỗ trợ nông dân, nhà nghiên cứu và sinh viên trong việc nhận diện cây trồng và bệnh lý, dựa trên AI và dữ liệu từ nguồn uy tín.</p>
+    <div class="about-content container">
+      <h2 class="section-title">Giới thiệu</h2>
+      <p class="about-description">Ứng dụng AI hỗ trợ tra cứu thông tin cây trồng, từ hình ảnh, thông số sinh trưởng đến cách chăm sóc và các bệnh thường gặp.</p>
     </div>
   </section>
+
+  <!-- Modal -->
+  <div id="plantModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title-section">
+          <div class="modal-icon">🌿</div>
+          <div class="modal-title-text">
+            <h2 id="modalPlantName"></h2>
+            <p id="modalPlantScientific"></p>
+          </div>
+        </div>
+        <button id="closeModal" class="modal-btn">✖</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
