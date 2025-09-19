@@ -1,123 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AgroSmartAI</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/lucide.min.css">
+<title>AgroSmart AI</title>
+<link rel="stylesheet" href="styles.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<style>
-:root {
-  --border: #e5e7eb;
-  --muted-foreground: #6b7280;
-  --primary: hsl(122, 39%, 49%);
-  --secondary: hsl(240, 4.8%, 95.9%);
-}
-body{margin:0;font-family:sans-serif;background:#f9fafb;transition:background 0.3s,color 0.3s}
-body.dark{background:#111;color:#f9fafb}
-header{position:fixed;width:100%;top:0;left:0;z-index:1000;padding:0.5rem 1rem;background:rgba(255,255,255,0.7);backdrop-filter:blur(8px);display:flex;justify-content:space-between;align-items:center}
-header.dark{background:rgba(17,17,17,0.7)}
-nav a{margin:0 0.5rem;text-decoration:none;color:inherit;font-weight:500}
-nav a:hover{text-decoration:underline}
-#bg-video-container{position:fixed;top:0;left:0;width:100%;height:100%;overflow:hidden;z-index:-1}
-#bg-video-container video{width:100%;height:100%;object-fit:cover}
-.indicators{position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);display:flex;gap:0.5rem}
-.indicator{width:12px;height:12px;border-radius:50%;background:#fff;opacity:0.5;cursor:pointer}
-.indicator.active{opacity:1;background:#0f0}
-section{padding:6rem 1rem 2rem}
-.plants-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1rem}
-.plants-grid.list-view{grid-template-columns:1fr}
-.plant-card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 5px rgba(0,0,0,0.1);cursor:pointer;transition:transform 0.2s}
-body.dark .plant-card{background:#1e1e1e;box-shadow:0 2px 5px rgba(0,0,0,0.5)}
-.plant-card:hover{transform:scale(1.02)}
-.plant-card img{width:100%;height:150px;object-fit:cover}
-.plant-card-content{padding:0.5rem 1rem}
-.category-badge{padding:2px 6px;border-radius:4px;font-size:0.75rem;font-weight:600;color:#fff}
-.category-badge.grain{background:hsl(45,93%,47%)}
-.category-badge.vegetable{background:hsl(122,39%,49%)}
-.category-badge.fruit{background:hsl(0,84%,60%)}
-.category-badge.legume{background:hsl(240,4.8%,60%)}
-.category-badge.industrial{background:hsl(280,50%,50%)}
-#plant-modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);display:none;justify-content:center;align-items:center;overflow:auto;padding:2rem;z-index:2000}
-#plant-modal.show{display:flex}
-.modal-content{background:#fff;border-radius:8px;padding:1rem;max-width:900px;width:100%;position:relative}
-body.dark .modal-content{background:#222}
-.modal-close{position:absolute;top:0.5rem;right:0.5rem;cursor:pointer;font-size:1.5rem;font-weight:bold}
-#toast-container{position:fixed;top:1rem;right:1rem;display:flex;flex-direction:column;gap:0.5rem;z-index:3000}
-.toast{padding:0.5rem 1rem;border-radius:6px;color:#fff;font-weight:500;box-shadow:0 2px 5px rgba(0,0,0,0.2)}
-.toast.success{background:green}
-.toast.error{background:red}
-.toast-info{background:blue}
-.upload-zone{border:2px dashed #ccc;padding:1rem;text-align:center;border-radius:8px;cursor:pointer}
-.upload-zone.dragover{background:#f0f0f0}
-#results-content{display:none}
-</style>
+<script src="https://unpkg.com/lucide/dist/lucide.min.js"></script>
 </head>
 <body>
-<header>
-  <div>AgroSmartAI</div>
-  <nav>
-    <a href="#library">Library</a>
-    <a href="#diagnosis">Diagnosis</a>
-    <button id="theme-toggle"><i data-lucide="moon" class="theme-icon"></i></button>
-  </nav>
-</header>
 
-<div id="bg-video-container">
-  <video id="bg-video" autoplay muted loop playsinline></video>
-  <div class="indicators">
-    <div class="indicator"></div>
-    <div class="indicator"></div>
-    <div class="indicator"></div>
-    <div class="indicator"></div>
-    <div class="indicator"></div>
-  </div>
+<!-- VIDEO NỀN -->
+<video id="bg-video" autoplay muted loop src="images/nen1.mp4"></video>
+<div class="video-controls">
+    <span class="indicator active"></span>
+    <span class="indicator"></span>
+    <span class="indicator"></span>
+    <span class="indicator"></span>
+    <span class="indicator"></span>
+    <button id="prev-video-btn">Prev</button>
+    <button id="next-video-btn">Next</button>
 </div>
 
-<section id="library">
-  <h2>Plant Library</h2>
-  <input type="text" id="library-search" placeholder="Search plants...">
-  <select id="category-filter"></select>
-  <div id="plants-grid" class="plants-grid"></div>
-  <div id="no-plants-message" class="hidden">No plants found.</div>
-  <div id="load-more-container"><button id="load-more-btn">Load More</button></div>
-  <button id="grid-view-btn" class="active">Grid</button>
-  <button id="list-view-btn">List</button>
-</section>
+<!-- NAVIGATION -->
+<nav>
+    <button id="theme-toggle">🌙</button>
+    <a href="#stats-section">Thống kê</a>
+    <a href="#plants-section">Thư viện cây trồng</a>
+    <a href="#diagnosis-section">Chẩn đoán AI</a>
+</nav>
 
-<section id="diagnosis">
-  <h2>AI Diagnosis</h2>
-  <div class="upload-zone" id="upload-zone"><span class="upload-text">Click to upload or drag and drop</span></div>
-  <input type="file" id="file-input" accept="image/*" hidden>
-  <div id="file-controls" class="hidden">
-    <button id="analyze-btn">Analyze</button>
-    <button id="reset-btn">Reset</button>
-  </div>
-  <div id="results-placeholder">Upload an image to see results.</div>
-  <div id="results-loading" class="hidden">Analyzing...</div>
-  <div id="results-content">
-    <p>Disease: <span id="disease-name"></span></p>
-    <div id="confidence-bar"><div id="confidence-progress" style="height:10px;background:green;width:0%"></div></div>
-    <span id="confidence-value"></span>
-  </div>
-</section>
-
-<div id="plant-modal">
-  <div class="modal-content">
-    <span class="modal-close">&times;</span>
-    <img id="modal-plant-image" src="" alt="" style="width:100%;height:auto;">
-    <h2 id="modal-plant-name"></h2>
-    <p id="modal-plant-scientific"></p>
-    <span id="modal-category" class="category-badge"></span>
-    <canvas id="modal-chart" style="width:100%;height:300px;"></canvas>
-  </div>
-</div>
-
+<!-- TOAST -->
 <div id="toast-container"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/lucide.min.js"></script>
-<script>
-/* --- PASTE THE FULL JS FINAL CODE HERE FROM THE PREVIOUS RESPONSE --- */
-</script>
+<!-- STATISTICS -->
+<section id="stats-section" style="padding:80px 15px;">
+    <h2>Thống kê</h2>
+    <div>Cây trồng hỗ trợ: <span id="stat-crops">0+</span></div>
+    <div>Bệnh phát hiện: <span id="stat-diseases">0+</span></div>
+    <div>Độ chính xác: <span id="stat-accuracy">0%</span></div>
+    <div>Nông dân hỗ trợ: <span id="stat-farmers">0+</span></div>
+</section>
+
+<!-- PLANT LIBRARY -->
+<section id="plants-section" style="padding:15px;">
+    <h2>Thư viện cây trồng</h2>
+    <input type="text" id="library-search" placeholder="Tìm kiếm cây trồng...">
+    <select id="category-filter">
+        <option value="all">Tất cả</option>
+    </select>
+    <div>
+        <button id="grid-view-btn" class="active">Lưới</button>
+        <button id="list-view-btn">Danh sách</button>
+    </div>
+    <div id="plants-grid" class="plants-grid"></div>
+    <div id="load-more-container">
+        <button id="load-more-btn">Xem thêm</button>
+    </div>
+</section>
+
+<!-- PLANT MODAL -->
+<div id="plant-modal" class="modal">
+    <div class="modal-content">
+        <button id="close-modal">Đóng</button>
+        <h2 id="modal-plant-name"></h2>
+        <img id="modal-plant-image" src="" alt="" style="max-width:100%;">
+        <p id="modal-plant-scientific"></p>
+        <canvas id="modal-chart" style="width:100%;height:300px;"></canvas>
+        <div id="modal-diseases"></div>
+    </div>
+</div>
+
+<!-- AI DIAGNOSIS -->
+<section id="diagnosis-section" style="padding:15px;">
+    <h2>Chẩn đoán AI</h2>
+    <div id="upload-zone" style="border:2px dashed #999; padding:20px; cursor:pointer;">
+        <p class="upload-text">Click hoặc kéo thả ảnh vào đây</p>
+        <input type="file" id="file-input" class="hidden">
+    </div>
+    <div id="file-controls" class="hidden">
+        <button id="analyze-btn">Phân tích</button>
+        <button id="reset-btn">Đặt lại</button>
+    </div>
+    <div id="results-placeholder">Kết quả sẽ hiện ở đây</div>
+    <div id="results-loading" class="hidden">Đang phân tích...</div>
+    <div id="results-content" class="hidden">
+        <h3 id="disease-name"></h3>
+        <div id="confidence-value"></div>
+        <div id="confidence-progress" style="height:10px;background:#4caf50;"></div>
+    </div>
+</section>
+
+<script src="script.js"></script>
 </body>
 </html>
